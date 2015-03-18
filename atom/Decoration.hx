@@ -9,7 +9,7 @@ package atom;
 	/**
 		Destroy this marker.
 	**/
-	function destroy():Void;
+	function destroy():Dynamic;
 	/**
 		When the {Decoration} is updated via {Decoration::update}.
 	**/
@@ -21,11 +21,11 @@ package atom;
 	/**
 		An id unique across all {Decoration} objects 
 	**/
-	function getId():Void;
+	function getId():Dynamic;
 	function getMarker():atom.Decoration;
 	function getProperties():atom.Decoration;
 	/**
 		Update the marker with new Properties. Allows you to change the decoration's class.
 	**/
-	function setProperties(newProperties:Dynamic<Dynamic>):Void;
+	function setProperties(newProperties:Dynamic<Dynamic>):Dynamic;
 }

@@ -79,15 +79,15 @@ package atom;
 	/**
 		Is the current window in development mode? 
 	**/
-	function inDevMode():Void;
+	function inDevMode():Dynamic;
 	/**
 		Is the current window in safe mode? 
 	**/
-	function inSafeMode():Void;
+	function inSafeMode():Dynamic;
 	/**
 		Is the current window running specs? 
 	**/
-	function inSpecMode():Void;
+	function inSpecMode():Dynamic;
 	/**
 		Get the version of the Atom application.
 	**/
@@ -95,7 +95,7 @@ package atom;
 	/**
 		Determine whether the current version is an official release. 
 	**/
-	function isReleasedVersion():Void;
+	function isReleasedVersion():Dynamic;
 	/**
 		Get the time taken to completely load the current window.
 	**/
@@ -103,15 +103,15 @@ package atom;
 	/**
 		Open a new Atom window using the given options.
 	**/
-	function open(options:Dynamic<Dynamic>):Void;
+	function open(options:Dynamic<Dynamic>):Dynamic;
 	/**
 		Show the native dialog to prompt the user to select a folder.
 	**/
-	function pickFolder(callback:haxe.Constraints.Function):Void;
+	function pickFolder(callback:haxe.Constraints.Function):Dynamic;
 	/**
 		Close the current window. 
 	**/
-	function close():Void;
+	function close():Dynamic;
 	/**
 		Get the size of current window.
 	**/
@@ -119,7 +119,7 @@ package atom;
 	/**
 		Set the size of current window.
 	**/
-	function setSize(width:Float, height:Float):Void;
+	function setSize(width:Float, height:Float):Dynamic;
 	/**
 		Get the position of current window.
 	**/
@@ -127,44 +127,44 @@ package atom;
 	/**
 		Set the position of current window.
 	**/
-	function setPosition(x:Float, y:Float):Void;
+	function setPosition(x:Float, y:Float):Dynamic;
 	/**
 		Move current window to the center of the screen. 
 	**/
-	function center():Void;
+	function center():Dynamic;
 	/**
 		Focus the current window. 
 	**/
-	function focus():Void;
+	function focus():Dynamic;
 	/**
 		Show the current window. 
 	**/
-	function show():Void;
+	function show():Dynamic;
 	/**
 		Hide the current window. 
 	**/
-	function hide():Void;
+	function hide():Dynamic;
 	/**
 		Reload the current window. 
 	**/
-	function reload():Void;
+	function reload():Dynamic;
 	function isMaximixed():Bool;
 	/**
 		Is the current window in full screen mode? 
 	**/
-	function isFullScreen():Void;
+	function isFullScreen():Dynamic;
 	/**
 		Set the full screen state of the current window. 
 	**/
-	function setFullScreen():Void;
+	function setFullScreen():Dynamic;
 	/**
 		Toggle the full screen state of the current window. 
 	**/
-	function toggleFullScreen():Void;
+	function toggleFullScreen():Dynamic;
 	/**
 		Visually and audibly trigger a beep. 
 	**/
-	function beep():Void;
+	function beep():Dynamic;
 	/**
 		A flexible way to open a dialog akin to an alert dialog.
 	**/
@@ -172,13 +172,13 @@ package atom;
 	/**
 		Open the dev tools for the current window. 
 	**/
-	function openDevTools():Void;
+	function openDevTools():Dynamic;
 	/**
 		Toggle the visibility of the dev tools for the current window. 
 	**/
-	function toggleDevTools():Void;
+	function toggleDevTools():Dynamic;
 	/**
 		Execute code in dev tools. 
 	**/
-	function executeJavaScriptInDevTools():Void;
+	function executeJavaScriptInDevTools():Dynamic;
 }

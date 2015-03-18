@@ -10,7 +10,7 @@ package atom;
 	/**
 		Call this with the result of {Range::serialize} to construct a new Range.
 	**/
-	static function deserialize(array:Array<Dynamic>):Void;
+	static function deserialize(array:Array<Dynamic>):Dynamic;
 	/**
 		Construct a {Range} object
 	**/

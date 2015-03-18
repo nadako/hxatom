@@ -25,7 +25,7 @@ package atom;
 		When your callback has been invoked, the file will have unsubscribed from
 		the file watches.
 	**/
-	function onWillThrowWatchError(callback:haxe.Constraints.Function):Void;
+	function onWillThrowWatchError(callback:haxe.Constraints.Function):Dynamic;
 	function isFile():Bool;
 	function isDirectory():Bool;
 	function exists():Bool;
@@ -37,18 +37,18 @@ package atom;
 	/**
 		Sets the file's character set encoding name.
 	**/
-	function setEncoding(encoding:String):Void;
+	function setEncoding(encoding:String):Dynamic;
 	function getEncoding():String;
 	function getPath():String;
 	function getRealPathSync():String;
 	/**
 		Return the {String} filename without any directory information. 
 	**/
-	function getBaseName():Void;
+	function getBaseName():Dynamic;
 	/**
 		Return the {Directory} that contains this file. 
 	**/
-	function getParent():Void;
+	function getParent():Dynamic;
 	/**
 		Reads the contents of the file.
 	**/
@@ -56,5 +56,5 @@ package atom;
 	/**
 		Overwrites the file with the given text.
 	**/
-	function write(text:String):Void;
+	function write(text:String):Dynamic;
 }

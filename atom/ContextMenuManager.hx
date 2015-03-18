@@ -7,5 +7,5 @@ package atom;
 	/**
 		Add context menu items scoped by CSS selectors.
 	**/
-	function add(itemsBySelector:Dynamic<Dynamic>):Void;
+	function add(itemsBySelector:Dynamic<Dynamic>):Dynamic;
 }

@@ -10,12 +10,12 @@ package atom;
 		Destroys the marker, causing it to emit the 'destroyed' event. Once
 		destroyed, a marker cannot be restored by undo/redo operations. 
 	**/
-	function destroy():Void;
+	function destroy():Dynamic;
 	/**
 		Creates and returns a new {Marker} with the same properties as this
 		marker.
 	**/
-	function copy(properties:Dynamic<Dynamic>):Void;
+	function copy(properties:Dynamic<Dynamic>):Dynamic;
 	/**
 		Invoke the given callback when the state of the marker changes.
 	**/
@@ -36,7 +36,7 @@ package atom;
 		Merges an {Object} containing new properties into the marker's
 		existing properties.
 	**/
-	function setProperties(properties:Dynamic<Dynamic>):Void;
+	function setProperties(properties:Dynamic<Dynamic>):Dynamic;
 	function isEqual(other:atom.Marker):Bool;
 	/**
 		Compares this marker to another based on their ranges.
@@ -49,7 +49,7 @@ package atom;
 	/**
 		Modifies the buffer range of the display marker.
 	**/
-	function setBufferRange(bufferRange:atom.Range, properties:Dynamic<Dynamic>):Void;
+	function setBufferRange(bufferRange:atom.Range, properties:Dynamic<Dynamic>):Dynamic;
 	/**
 		Gets the screen range of the display marker.
 	**/
@@ -57,7 +57,7 @@ package atom;
 	/**
 		Modifies the screen range of the display marker.
 	**/
-	function setScreenRange(screenRange:atom.Range, properties:Dynamic<Dynamic>):Void;
+	function setScreenRange(screenRange:atom.Range, properties:Dynamic<Dynamic>):Dynamic;
 	/**
 		Retrieves the buffer position of the marker's start. This will always be
 		less than or equal to the result of {Marker::getEndBufferPosition}.
@@ -85,7 +85,7 @@ package atom;
 	/**
 		Sets the buffer position of the marker's head.
 	**/
-	function setHeadBufferPosition(bufferPosition:atom.Point, properties:Dynamic<Dynamic>):Void;
+	function setHeadBufferPosition(bufferPosition:atom.Point, properties:Dynamic<Dynamic>):Dynamic;
 	/**
 		Retrieves the screen position of the marker's head.
 	**/
@@ -93,7 +93,7 @@ package atom;
 	/**
 		Sets the screen position of the marker's head.
 	**/
-	function setHeadScreenPosition(screenPosition:atom.Point, properties:Dynamic<Dynamic>):Void;
+	function setHeadScreenPosition(screenPosition:atom.Point, properties:Dynamic<Dynamic>):Dynamic;
 	/**
 		Retrieves the buffer position of the marker's tail.
 	**/
@@ -101,7 +101,7 @@ package atom;
 	/**
 		Sets the buffer position of the marker's tail.
 	**/
-	function setTailBufferPosition(bufferPosition:atom.Point, properties:Dynamic<Dynamic>):Void;
+	function setTailBufferPosition(bufferPosition:atom.Point, properties:Dynamic<Dynamic>):Dynamic;
 	/**
 		Retrieves the screen position of the marker's tail.
 	**/
@@ -109,18 +109,18 @@ package atom;
 	/**
 		Sets the screen position of the marker's tail.
 	**/
-	function setTailScreenPosition(screenPosition:atom.Point, properties:Dynamic<Dynamic>):Void;
+	function setTailScreenPosition(screenPosition:atom.Point, properties:Dynamic<Dynamic>):Dynamic;
 	function hasTail():Bool;
 	/**
 		Plants the marker's tail at the current head position. After calling
 		the marker's tail position will be its head position at the time of the
 		call, regardless of where the marker's head is moved.
 	**/
-	function plantTail(properties:Dynamic<Dynamic>):Void;
+	function plantTail(properties:Dynamic<Dynamic>):Dynamic;
 	/**
 		Removes the marker's tail. After calling the marker's head position
 		will be reported as its current tail position until the tail is planted
 		again.
 	**/
-	function clearTail(properties:Dynamic<Dynamic>):Void;
+	function clearTail(properties:Dynamic<Dynamic>):Dynamic;
 }

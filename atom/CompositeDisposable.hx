@@ -11,18 +11,18 @@ package atom;
 	/**
 		Dispose all disposables added to this composite disposable.
 	**/
-	function dispose():Void;
+	function dispose():Dynamic;
 	/**
 		Add a disposable to be disposed when the composite is disposed.
 	**/
-	function add(disposable:atom.Disposable):Void;
+	function add(disposable:atom.Disposable):Dynamic;
 	/**
 		Remove a previously added disposable.
 	**/
-	function remove(disposable:atom.Disposable):Void;
+	function remove(disposable:atom.Disposable):Dynamic;
 	/**
 		Clear all disposables. They will not be disposed by the next call
 		to dispose. 
 	**/
-	function clear():Void;
+	function clear():Dynamic;
 }

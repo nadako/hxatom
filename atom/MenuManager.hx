@@ -11,5 +11,5 @@ package atom;
 	/**
 		Refreshes the currently visible menu. 
 	**/
-	function update():Void;
+	function update():Dynamic;
 }

@@ -10,12 +10,12 @@ package atom;
 	/**
 		Destroy this {GitRepository} object.
 	**/
-	function destroy():Void;
+	function destroy():Dynamic;
 	/**
 		Invoke the given callback when this GitRepository's destroy() method
 		is invoked. 
 	**/
-	function onDidDestroy():Void;
+	function onDidDestroy():Dynamic;
 	/**
 		Invoke the given callback when a specific file's status has
 		changed. When a file is updated, reloaded, etc, and the status changes, this
@@ -35,7 +35,7 @@ package atom;
 	/**
 		Makes a path relative to the repository's working directory. 
 	**/
-	function relativize():Void;
+	function relativize():Dynamic;
 	function hasBranch():Dynamic;
 	/**
 		Retrieves a shortened version of the HEAD reference value.

@@ -8,7 +8,7 @@ package atom;
 	/**
 		Create a keydown DOM event for testing purposes.
 	**/
-	static function buildKeydownEvent(key:Dynamic, options:Dynamic<Dynamic>):Void;
+	static function buildKeydownEvent(key:Dynamic, options:Dynamic<Dynamic>):Dynamic;
 	/**
 		Create a new KeymapManager.
 	**/
@@ -16,7 +16,7 @@ package atom;
 	/**
 		Unwatch all watched paths. 
 	**/
-	function destroy():Void;
+	function destroy():Dynamic;
 	/**
 		Invoke the given callback when one or more keystrokes completely
 		match a key binding.
@@ -39,7 +39,7 @@ package atom;
 	/**
 		Add sets of key bindings grouped by CSS selector.
 	**/
-	function add(source:String, bindings:Dynamic<Dynamic>):Void;
+	function add(source:String, bindings:Dynamic<Dynamic>):Dynamic;
 	/**
 		Get all current key bindings.
 	**/
@@ -51,17 +51,17 @@ package atom;
 	/**
 		Load the key bindings from the given path.
 	**/
-	function loadKeymap(path:String, options:Dynamic<Dynamic>):Void;
+	function loadKeymap(path:String, options:Dynamic<Dynamic>):Dynamic;
 	/**
 		Cause the keymap to reload the key bindings file at the given path
 		whenever it changes.
 	**/
-	function watchKeymap(path:String):Void;
+	function watchKeymap(path:String):Dynamic;
 	/**
 		Dispatch a custom event associated with the matching key binding for
 		the given `KeyboardEvent` if one can be found.
 	**/
-	function handleKeyboardEvent(event:Dynamic):Void;
+	function handleKeyboardEvent(event:Dynamic):Dynamic;
 	/**
 		Translate a keydown event to a keystroke string.
 	**/

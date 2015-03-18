@@ -18,5 +18,5 @@ package atom;
 	/**
 		Terminate the process. 
 	**/
-	function kill():Void;
+	function kill():Dynamic;
 }

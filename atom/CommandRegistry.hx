@@ -17,5 +17,5 @@ package atom;
 	/**
 		Simulate the dispatch of a command on a DOM node.
 	**/
-	function dispatch(target:Dynamic, commandName:String):Void;
+	function dispatch(target:Dynamic, commandName:String):Dynamic;
 }

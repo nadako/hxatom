@@ -137,17 +137,17 @@ package atom;
 		Set the character set encoding to use in this editor's text
 		buffer.
 	**/
-	function setEncoding(encoding:String):Void;
+	function setEncoding(encoding:String):Dynamic;
 	function isModified():Bool;
 	function isEmpty():Bool;
 	/**
 		Saves the editor's text buffer.
 	**/
-	function save():Void;
+	function save():Dynamic;
 	/**
 		Saves the editor's text buffer as the given path.
 	**/
-	function saveAs(filePath:String):Void;
+	function saveAs(filePath:String):Dynamic;
 	function getText():String;
 	/**
 		Get the text in the given {Range} in buffer coordinates.
@@ -167,7 +167,7 @@ package atom;
 	/**
 		Replaces the entire contents of the buffer with the given {String}. 
 	**/
-	function setText():Void;
+	function setText():Dynamic;
 	/**
 		Set the text in the given {Range} in buffer coordinates.
 	**/
@@ -179,91 +179,91 @@ package atom;
 	/**
 		For each selection, replace the selected text with a newline. 
 	**/
-	function insertNewline():Void;
+	function insertNewline():Dynamic;
 	/**
 		For each selection, if the selection is empty, delete the character
 		following the cursor. Otherwise delete the selected text. 
 	**/
-	function delete():Void;
+	function delete():Dynamic;
 	/**
 		For each selection, if the selection is empty, delete the character
 		preceding the cursor. Otherwise delete the selected text. 
 	**/
-	function backspace():Void;
+	function backspace():Dynamic;
 	/**
 		Mutate the text of all the selections in a single transaction.
 	**/
-	function mutateSelectedText(fn:haxe.Constraints.Function):Void;
+	function mutateSelectedText(fn:haxe.Constraints.Function):Dynamic;
 	/**
 		For each selection, transpose the selected text.
 	**/
-	function transpose():Void;
+	function transpose():Dynamic;
 	/**
 		Convert the selected text to upper case.
 	**/
-	function upperCase():Void;
+	function upperCase():Dynamic;
 	/**
 		Convert the selected text to lower case.
 	**/
-	function lowerCase():Void;
+	function lowerCase():Dynamic;
 	/**
 		Toggle line comments for rows intersecting selections.
 	**/
-	function toggleLineCommentsInSelection():Void;
+	function toggleLineCommentsInSelection():Dynamic;
 	/**
 		For each cursor, insert a newline at beginning the following line. 
 	**/
-	function insertNewlineBelow():Void;
+	function insertNewlineBelow():Dynamic;
 	/**
 		For each cursor, insert a newline at the end of the preceding line. 
 	**/
-	function insertNewlineAbove():Void;
+	function insertNewlineAbove():Dynamic;
 	/**
 		For each selection, if the selection is empty, delete all characters
 		of the containing word that precede the cursor. Otherwise delete the
 		selected text. 
 	**/
-	function deleteToBeginningOfWord():Void;
+	function deleteToBeginningOfWord():Dynamic;
 	/**
 		For each selection, if the selection is empty, delete all characters
 		of the containing line that precede the cursor. Otherwise delete the
 		selected text. 
 	**/
-	function deleteToBeginningOfLine():Void;
+	function deleteToBeginningOfLine():Dynamic;
 	/**
 		For each selection, if the selection is not empty, deletes the
 		selection; otherwise, deletes all characters of the containing line
 		following the cursor. If the cursor is already at the end of the line,
 		deletes the following newline. 
 	**/
-	function deleteToEndOfLine():Void;
+	function deleteToEndOfLine():Dynamic;
 	/**
 		For each selection, if the selection is empty, delete all characters
 		of the containing word following the cursor. Otherwise delete the selected
 		text. 
 	**/
-	function deleteToEndOfWord():Void;
+	function deleteToEndOfWord():Dynamic;
 	/**
 		Delete all lines intersecting selections. 
 	**/
-	function deleteLine():Void;
+	function deleteLine():Dynamic;
 	/**
 		Undo the last change. 
 	**/
-	function undo():Void;
+	function undo():Dynamic;
 	/**
 		Redo the last change. 
 	**/
-	function redo():Void;
+	function redo():Dynamic;
 	/**
 		Batch multiple operations as a single undo/redo step.
 	**/
-	function transact(groupingInterval:Float, fn:haxe.Constraints.Function):Void;
+	function transact(groupingInterval:Float, fn:haxe.Constraints.Function):Dynamic;
 	/**
 		Abort an open transaction, undoing any operations performed so far
 		within the transaction. 
 	**/
-	function abortTransaction():Void;
+	function abortTransaction():Dynamic;
 	/**
 		Create a pointer to the current state of the buffer for use
 		with {::revertToCheckpoint} and {::groupChangesSinceCheckpoint}.
@@ -363,15 +363,15 @@ package atom;
 	/**
 		Find all {Marker}s that match the given properties.
 	**/
-	function findMarkers(properties:Dynamic<Dynamic>):Void;
+	function findMarkers(properties:Dynamic<Dynamic>):Dynamic;
 	/**
 		Get the {Marker} for the given marker id.
 	**/
-	function getMarker(id:Float):Void;
+	function getMarker(id:Float):Dynamic;
 	/**
 		Get all {Marker}s. Consider using {::findMarkers} 
 	**/
-	function getMarkers():Void;
+	function getMarkers():Dynamic;
 	/**
 		Get the number of markers in this editor's buffer.
 	**/
@@ -388,7 +388,7 @@ package atom;
 	/**
 		Move the cursor to the given position in buffer coordinates.
 	**/
-	function setCursorBufferPosition(position:atom.Point, options:Dynamic<Dynamic>):Void;
+	function setCursorBufferPosition(position:atom.Point, options:Dynamic<Dynamic>):Dynamic;
 	/**
 		Get the position of the most recently added cursor in screen
 		coordinates.
@@ -401,7 +401,7 @@ package atom;
 	/**
 		Move the cursor to the given position in screen coordinates.
 	**/
-	function setCursorScreenPosition(position:atom.Point, options:Dynamic<Dynamic>):Void;
+	function setCursorScreenPosition(position:atom.Point, options:Dynamic<Dynamic>):Dynamic;
 	/**
 		Add a cursor at the given position in buffer coordinates.
 	**/
@@ -414,81 +414,81 @@ package atom;
 	/**
 		Move every cursor up one row in screen coordinates.
 	**/
-	function moveUp(lineCount:Float):Void;
+	function moveUp(lineCount:Float):Dynamic;
 	/**
 		Move every cursor down one row in screen coordinates.
 	**/
-	function moveDown(lineCount:Float):Void;
+	function moveDown(lineCount:Float):Dynamic;
 	/**
 		Move every cursor left one column.
 	**/
-	function moveLeft(columnCount:Float):Void;
+	function moveLeft(columnCount:Float):Dynamic;
 	/**
 		Move every cursor right one column.
 	**/
-	function moveRight(columnCount:Float):Void;
+	function moveRight(columnCount:Float):Dynamic;
 	/**
 		Move every cursor to the beginning of its line in buffer coordinates. 
 	**/
-	function moveToBeginningOfLine():Void;
+	function moveToBeginningOfLine():Dynamic;
 	/**
 		Move every cursor to the beginning of its line in screen coordinates. 
 	**/
-	function moveToBeginningOfScreenLine():Void;
+	function moveToBeginningOfScreenLine():Dynamic;
 	/**
 		Move every cursor to the first non-whitespace character of its line. 
 	**/
-	function moveToFirstCharacterOfLine():Void;
+	function moveToFirstCharacterOfLine():Dynamic;
 	/**
 		Move every cursor to the end of its line in buffer coordinates. 
 	**/
-	function moveToEndOfLine():Void;
+	function moveToEndOfLine():Dynamic;
 	/**
 		Move every cursor to the end of its line in screen coordinates. 
 	**/
-	function moveToEndOfScreenLine():Void;
+	function moveToEndOfScreenLine():Dynamic;
 	/**
 		Move every cursor to the beginning of its surrounding word. 
 	**/
-	function moveToBeginningOfWord():Void;
+	function moveToBeginningOfWord():Dynamic;
 	/**
 		Move every cursor to the end of its surrounding word. 
 	**/
-	function moveToEndOfWord():Void;
+	function moveToEndOfWord():Dynamic;
 	/**
 		Move every cursor to the top of the buffer.
 	**/
-	function moveToTop():Void;
+	function moveToTop():Dynamic;
 	/**
 		Move every cursor to the bottom of the buffer.
 	**/
-	function moveToBottom():Void;
+	function moveToBottom():Dynamic;
 	/**
 		Move every cursor to the beginning of the next word. 
 	**/
-	function moveToBeginningOfNextWord():Void;
+	function moveToBeginningOfNextWord():Dynamic;
 	/**
 		Move every cursor to the previous word boundary. 
 	**/
-	function moveToPreviousWordBoundary():Void;
+	function moveToPreviousWordBoundary():Dynamic;
 	/**
 		Move every cursor to the next word boundary. 
 	**/
-	function moveToNextWordBoundary():Void;
+	function moveToNextWordBoundary():Dynamic;
 	/**
 		Move every cursor to the beginning of the next paragraph. 
 	**/
-	function moveToBeginningOfNextParagraph():Void;
+	function moveToBeginningOfNextParagraph():Dynamic;
 	/**
 		Move every cursor to the beginning of the previous paragraph. 
 	**/
-	function moveToBeginningOfPreviousParagraph():Void;
+	function moveToBeginningOfPreviousParagraph():Dynamic;
 	function getLastCursor():atom.Cursor;
 	function getWordUnderCursor(options:Dynamic):Dynamic;
 	/**
 		Get an Array of all {Cursor}s. 
 	**/
-	function getCursors():Void;
+	function getCursors():Dynamic;
 	/**
 		Get all {Cursors}s, ordered by their position in the buffer
 		instead of the order in which they were added.
@@ -511,12 +511,12 @@ package atom;
 		Set the selected range in buffer coordinates. If there are multiple
 		selections, they are reduced to a single selection with the given range.
 	**/
-	function setSelectedBufferRange(bufferRange:atom.Range, options:Dynamic<Dynamic>):Void;
+	function setSelectedBufferRange(bufferRange:atom.Range, options:Dynamic<Dynamic>):Dynamic;
 	/**
 		Set the selected ranges in buffer coordinates. If there are multiple
 		selections, they are replaced by new selections with the given ranges.
 	**/
-	function setSelectedBufferRanges(bufferRanges:Array<Dynamic>, options:Dynamic<Dynamic>):Void;
+	function setSelectedBufferRanges(bufferRanges:Array<Dynamic>, options:Dynamic<Dynamic>):Dynamic;
 	/**
 		Get the {Range} of the most recently added selection in screen
 		coordinates.
@@ -530,12 +530,12 @@ package atom;
 		Set the selected range in screen coordinates. If there are multiple
 		selections, they are reduced to a single selection with the given range.
 	**/
-	function setSelectedScreenRange(screenRange:atom.Range, options:Dynamic<Dynamic>):Void;
+	function setSelectedScreenRange(screenRange:atom.Range, options:Dynamic<Dynamic>):Dynamic;
 	/**
 		Set the selected ranges in screen coordinates. If there are multiple
 		selections, they are replaced by new selections with the given ranges.
 	**/
-	function setSelectedScreenRanges(screenRanges:Array<Dynamic>, options:Dynamic<Dynamic>):Void;
+	function setSelectedScreenRanges(screenRanges:Array<Dynamic>, options:Dynamic<Dynamic>):Dynamic;
 	/**
 		Add a selection for the given range in buffer coordinates.
 	**/
@@ -548,101 +548,101 @@ package atom;
 		Select from the current cursor position to the given position in
 		buffer coordinates.
 	**/
-	function selectToBufferPosition(position:atom.Point):Void;
+	function selectToBufferPosition(position:atom.Point):Dynamic;
 	/**
 		Select from the current cursor position to the given position in
 		screen coordinates.
 	**/
-	function selectToScreenPosition(position:atom.Point):Void;
+	function selectToScreenPosition(position:atom.Point):Dynamic;
 	/**
 		Move the cursor of each selection one character upward while
 		preserving the selection's tail position.
 	**/
-	function selectUp(rowCount:Float):Void;
+	function selectUp(rowCount:Float):Dynamic;
 	/**
 		Move the cursor of each selection one character downward while
 		preserving the selection's tail position.
 	**/
-	function selectDown(rowCount:Float):Void;
+	function selectDown(rowCount:Float):Dynamic;
 	/**
 		Move the cursor of each selection one character leftward while
 		preserving the selection's tail position.
 	**/
-	function selectLeft(columnCount:Float):Void;
+	function selectLeft(columnCount:Float):Dynamic;
 	/**
 		Move the cursor of each selection one character rightward while
 		preserving the selection's tail position.
 	**/
-	function selectRight(columnCount:Float):Void;
+	function selectRight(columnCount:Float):Dynamic;
 	/**
 		Select from the top of the buffer to the end of the last selection
 		in the buffer.
 	**/
-	function selectToTop():Void;
+	function selectToTop():Dynamic;
 	/**
 		Selects from the top of the first selection in the buffer to the end
 		of the buffer.
 	**/
-	function selectToBottom():Void;
+	function selectToBottom():Dynamic;
 	/**
 		Select all text in the buffer.
 	**/
-	function selectAll():Void;
+	function selectAll():Dynamic;
 	/**
 		Move the cursor of each selection to the beginning of its line
 		while preserving the selection's tail position.
 	**/
-	function selectToBeginningOfLine():Void;
+	function selectToBeginningOfLine():Dynamic;
 	/**
 		Move the cursor of each selection to the first non-whitespace
 		character of its line while preserving the selection's tail position. If the
 		cursor is already on the first character of the line, move it to the
 		beginning of the line.
 	**/
-	function selectToFirstCharacterOfLine():Void;
+	function selectToFirstCharacterOfLine():Dynamic;
 	/**
 		Move the cursor of each selection to the end of its line while
 		preserving the selection's tail position.
 	**/
-	function selectToEndOfLine():Void;
+	function selectToEndOfLine():Dynamic;
 	/**
 		Expand selections to the beginning of their containing word.
 	**/
-	function selectToBeginningOfWord():Void;
+	function selectToBeginningOfWord():Dynamic;
 	/**
 		Expand selections to the end of their containing word.
 	**/
-	function selectToEndOfWord():Void;
+	function selectToEndOfWord():Dynamic;
 	/**
 		For each cursor, select the containing line.
 	**/
-	function selectLinesContainingCursors():Void;
+	function selectLinesContainingCursors():Dynamic;
 	/**
 		Select the word surrounding each cursor. 
 	**/
-	function selectWordsContainingCursors():Void;
+	function selectWordsContainingCursors():Dynamic;
 	/**
 		For each selection, move its cursor to the preceding word boundary
 		while maintaining the selection's tail position.
 	**/
-	function selectToPreviousWordBoundary():Void;
+	function selectToPreviousWordBoundary():Dynamic;
 	/**
 		For each selection, move its cursor to the next word boundary while
 		maintaining the selection's tail position.
 	**/
-	function selectToNextWordBoundary():Void;
+	function selectToNextWordBoundary():Dynamic;
 	/**
 		Expand selections to the beginning of the next word.
 	**/
-	function selectToBeginningOfNextWord():Void;
+	function selectToBeginningOfNextWord():Dynamic;
 	/**
 		Expand selections to the beginning of the next paragraph.
 	**/
-	function selectToBeginningOfNextParagraph():Void;
+	function selectToBeginningOfNextParagraph():Dynamic;
 	/**
 		Expand selections to the beginning of the next paragraph.
 	**/
-	function selectToBeginningOfPreviousParagraph():Void;
+	function selectToBeginningOfPreviousParagraph():Dynamic;
 	/**
 		Select the range of the given marker if it is valid.
 	**/
@@ -669,26 +669,26 @@ package atom;
 		Scan regular expression matches in the entire buffer, calling the
 		given iterator function on each match.
 	**/
-	function scan(regex:js.RegExp, iterator:haxe.Constraints.Function):Void;
+	function scan(regex:js.RegExp, iterator:haxe.Constraints.Function):Dynamic;
 	/**
 		Scan regular expression matches in a given range, calling the given
 		iterator function on each match.
 	**/
-	function scanInBufferRange(regex:js.RegExp, range:atom.Range, iterator:haxe.Constraints.Function):Void;
+	function scanInBufferRange(regex:js.RegExp, range:atom.Range, iterator:haxe.Constraints.Function):Dynamic;
 	/**
 		Scan regular expression matches in a given range in reverse order,
 		calling the given iterator function on each match.
 	**/
-	function backwardsScanInBufferRange(regex:js.RegExp, range:atom.Range, iterator:haxe.Constraints.Function):Void;
+	function backwardsScanInBufferRange(regex:js.RegExp, range:atom.Range, iterator:haxe.Constraints.Function):Dynamic;
 	function getSoftTabs():Bool;
 	/**
 		Enable or disable soft tabs for this editor.
 	**/
-	function setSoftTabs(softTabs:Bool):Void;
+	function setSoftTabs(softTabs:Bool):Dynamic;
 	/**
 		Toggle soft tabs for this editor 
 	**/
-	function toggleSoftTabs():Void;
+	function toggleSoftTabs():Dynamic;
 	/**
 		Get the on-screen length of tab characters.
 	**/
@@ -697,7 +697,7 @@ package atom;
 		Set the on-screen length of tab characters. Setting this to a
 		{Number} This will override the `editor.tabLength` setting.
 	**/
-	function setTabLength(tabLength:Float):Void;
+	function setTabLength(tabLength:Float):Dynamic;
 	/**
 		Determine if the buffer uses hard or soft tabs.
 	**/
@@ -721,7 +721,7 @@ package atom;
 	/**
 		Gets the column at which column will soft wrap 
 	**/
-	function getSoftWrapColumn():Void;
+	function getSoftWrapColumn():Dynamic;
 	/**
 		Get the indentation level of the given a buffer row.
 	**/
@@ -729,15 +729,15 @@ package atom;
 	/**
 		Set the indentation level for the given buffer row.
 	**/
-	function setIndentationForBufferRow(bufferRow:Float, newLevel:Float, options:Dynamic<Dynamic>):Void;
+	function setIndentationForBufferRow(bufferRow:Float, newLevel:Float, options:Dynamic<Dynamic>):Dynamic;
 	/**
 		Indent rows intersecting selections by one level. 
 	**/
-	function indentSelectedRows():Void;
+	function indentSelectedRows():Dynamic;
 	/**
 		Outdent rows intersecting selections by one level. 
 	**/
-	function outdentSelectedRows():Void;
+	function outdentSelectedRows():Dynamic;
 	/**
 		Get the indentation level of the given line of text.
 	**/
@@ -746,15 +746,15 @@ package atom;
 		Indent rows intersecting selections based on the grammar's suggested
 		indent level. 
 	**/
-	function autoIndentSelectedRows():Void;
+	function autoIndentSelectedRows():Dynamic;
 	/**
 		Get the current {Grammar} of this editor. 
 	**/
-	function getGrammar():Void;
+	function getGrammar():Dynamic;
 	/**
 		Set the current {Grammar} of this editor.
 	**/
-	function setGrammar(grammar:atom.Grammar):Void;
+	function setGrammar(grammar:atom.Grammar):Dynamic;
 	function getRootScopeDescriptor():atom.ScopeDescriptor;
 	/**
 		Get the syntactic scopeDescriptor for the given position in buffer
@@ -769,59 +769,59 @@ package atom;
 	/**
 		Determine if the given row is entirely a comment 
 	**/
-	function isBufferRowCommented():Void;
+	function isBufferRowCommented():Dynamic;
 	/**
 		For each selection, copy the selected text. 
 	**/
-	function copySelectedText():Void;
+	function copySelectedText():Dynamic;
 	/**
 		For each selection, cut the selected text. 
 	**/
-	function cutSelectedText():Void;
+	function cutSelectedText():Dynamic;
 	/**
 		For each selection, replace the selected text with the contents of
 		the clipboard.
 	**/
-	function pasteText(options:Dynamic):Void;
+	function pasteText(options:Dynamic):Dynamic;
 	/**
 		For each selection, if the selection is empty, cut all characters
 		of the containing line following the cursor. Otherwise cut the selected
 		text. 
 	**/
-	function cutToEndOfLine():Void;
+	function cutToEndOfLine():Dynamic;
 	/**
 		Fold the most recent cursor's row based on its indentation level.
 	**/
-	function foldCurrentRow():Void;
+	function foldCurrentRow():Dynamic;
 	/**
 		Unfold the most recent cursor's row by one level. 
 	**/
-	function unfoldCurrentRow():Void;
+	function unfoldCurrentRow():Dynamic;
 	/**
 		Fold the given row in buffer coordinates based on its indentation
 		level.
 	**/
-	function foldBufferRow(bufferRow:Float):Void;
+	function foldBufferRow(bufferRow:Float):Dynamic;
 	/**
 		Unfold all folds containing the given row in buffer coordinates.
 	**/
-	function unfoldBufferRow(bufferRow:Float):Void;
+	function unfoldBufferRow(bufferRow:Float):Dynamic;
 	/**
 		For each selection, fold the rows it intersects. 
 	**/
-	function foldSelectedLines():Void;
+	function foldSelectedLines():Dynamic;
 	/**
 		Fold all foldable lines. 
 	**/
-	function foldAll():Void;
+	function foldAll():Dynamic;
 	/**
 		Unfold all existing folds. 
 	**/
-	function unfoldAll():Void;
+	function unfoldAll():Dynamic;
 	/**
 		Fold all foldable lines at the given indent level.
 	**/
-	function foldAllAtIndentLevel(level:Float):Void;
+	function foldAllAtIndentLevel(level:Float):Dynamic;
 	/**
 		Determine whether the given row in buffer coordinates is foldable.
 	**/
@@ -834,7 +834,7 @@ package atom;
 		Fold the given buffer row if it isn't currently folded, and unfold
 		it otherwise. 
 	**/
-	function toggleFoldAtBufferRow():Void;
+	function toggleFoldAtBufferRow():Dynamic;
 	/**
 		Determine whether the most recently added cursor's row is folded.
 	**/
@@ -851,23 +851,23 @@ package atom;
 		Scroll the editor to reveal the most recently added cursor if it is
 		off-screen.
 	**/
-	function scrollToCursorPosition(options:Dynamic<Dynamic>):Void;
+	function scrollToCursorPosition(options:Dynamic<Dynamic>):Dynamic;
 	/**
 		Scrolls the editor to the given buffer position.
 	**/
-	function scrollToBufferPosition(bufferPosition:Dynamic<Dynamic>, options:Dynamic<Dynamic>):Void;
+	function scrollToBufferPosition(bufferPosition:Dynamic<Dynamic>, options:Dynamic<Dynamic>):Dynamic;
 	/**
 		Scrolls the editor to the given screen position.
 	**/
-	function scrollToScreenPosition(screenPosition:Dynamic<Dynamic>, options:Dynamic<Dynamic>):Void;
+	function scrollToScreenPosition(screenPosition:Dynamic<Dynamic>, options:Dynamic<Dynamic>):Dynamic;
 	/**
 		Scrolls the editor to the top 
 	**/
-	function scrollToTop():Void;
+	function scrollToTop():Dynamic;
 	/**
 		Scrolls the editor to the bottom 
 	**/
-	function scrollToBottom():Void;
+	function scrollToBottom():Dynamic;
 	/**
 		Retrieves the greyed out placeholder of a mini editor.
 	**/
@@ -876,5 +876,5 @@ package atom;
 		Set the greyed out placeholder of a mini editor. Placeholder text
 		will be displayed when the editor has no content.
 	**/
-	function setPlaceholderText(placeholderText:String):Void;
+	function setPlaceholderText(placeholderText:String):Dynamic;
 }

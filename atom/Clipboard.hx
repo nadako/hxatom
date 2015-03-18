@@ -6,7 +6,7 @@ package atom;
 	/**
 		Write the given text to the clipboard.
 	**/
-	function write(text:String, metadata:Dynamic):Void;
+	function write(text:String, metadata:Dynamic):Dynamic;
 	/**
 		Read the text from the clipboard.
 	**/

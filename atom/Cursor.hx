@@ -19,19 +19,19 @@ package atom;
 	/**
 		Moves a cursor to a given screen position.
 	**/
-	function setScreenPosition(screenPosition:Array<Dynamic>, options:Dynamic<Dynamic>):Void;
+	function setScreenPosition(screenPosition:Array<Dynamic>, options:Dynamic<Dynamic>):Dynamic;
 	function getScreenPosition():Dynamic;
 	/**
 		Moves a cursor to a given buffer position.
 	**/
-	function setBufferPosition(bufferPosition:Array<Dynamic>, options:Dynamic<Dynamic>):Void;
+	function setBufferPosition(bufferPosition:Array<Dynamic>, options:Dynamic<Dynamic>):Dynamic;
 	function getBufferPosition():Dynamic;
 	function getScreenRow():Dynamic;
 	function getScreenColumn():Dynamic;
 	/**
 		Retrieves the cursor's current buffer row. 
 	**/
-	function getBufferRow():Void;
+	function getBufferRow():Dynamic;
 	function getBufferColumn():Dynamic;
 	function getCurrentBufferLine():Dynamic;
 	function isAtBeginningOfLine():Dynamic;
@@ -56,81 +56,81 @@ package atom;
 	/**
 		Moves the cursor up one screen row.
 	**/
-	function moveUp(rowCount:Float, options:Dynamic<Dynamic>):Void;
+	function moveUp(rowCount:Float, options:Dynamic<Dynamic>):Dynamic;
 	/**
 		Moves the cursor down one screen row.
 	**/
-	function moveDown(rowCount:Float, options:Dynamic<Dynamic>):Void;
+	function moveDown(rowCount:Float, options:Dynamic<Dynamic>):Dynamic;
 	/**
 		Moves the cursor left one screen column.
 	**/
-	function moveLeft(columnCount:Float, options:Dynamic<Dynamic>):Void;
+	function moveLeft(columnCount:Float, options:Dynamic<Dynamic>):Dynamic;
 	/**
 		Moves the cursor right one screen column.
 	**/
-	function moveRight(columnCount:Float, options:Dynamic<Dynamic>):Void;
+	function moveRight(columnCount:Float, options:Dynamic<Dynamic>):Dynamic;
 	/**
 		Moves the cursor to the top of the buffer. 
 	**/
-	function moveToTop():Void;
+	function moveToTop():Dynamic;
 	/**
 		Moves the cursor to the bottom of the buffer. 
 	**/
-	function moveToBottom():Void;
+	function moveToBottom():Dynamic;
 	/**
 		Moves the cursor to the beginning of the line. 
 	**/
-	function moveToBeginningOfScreenLine():Void;
+	function moveToBeginningOfScreenLine():Dynamic;
 	/**
 		Moves the cursor to the beginning of the buffer line. 
 	**/
-	function moveToBeginningOfLine():Void;
+	function moveToBeginningOfLine():Dynamic;
 	/**
 		Moves the cursor to the beginning of the first character in the
 		line. 
 	**/
-	function moveToFirstCharacterOfLine():Void;
+	function moveToFirstCharacterOfLine():Dynamic;
 	/**
 		Moves the cursor to the end of the line. 
 	**/
-	function moveToEndOfScreenLine():Void;
+	function moveToEndOfScreenLine():Dynamic;
 	/**
 		Moves the cursor to the end of the buffer line. 
 	**/
-	function moveToEndOfLine():Void;
+	function moveToEndOfLine():Dynamic;
 	/**
 		Moves the cursor to the beginning of the word. 
 	**/
-	function moveToBeginningOfWord():Void;
+	function moveToBeginningOfWord():Dynamic;
 	/**
 		Moves the cursor to the end of the word. 
 	**/
-	function moveToEndOfWord():Void;
+	function moveToEndOfWord():Dynamic;
 	/**
 		Moves the cursor to the beginning of the next word. 
 	**/
-	function moveToBeginningOfNextWord():Void;
+	function moveToBeginningOfNextWord():Dynamic;
 	/**
 		Moves the cursor to the previous word boundary. 
 	**/
-	function moveToPreviousWordBoundary():Void;
+	function moveToPreviousWordBoundary():Dynamic;
 	/**
 		Moves the cursor to the next word boundary. 
 	**/
-	function moveToNextWordBoundary():Void;
+	function moveToNextWordBoundary():Dynamic;
 	/**
 		Moves the cursor to the beginning of the buffer line, skipping all
 		whitespace. 
 	**/
-	function skipLeadingWhitespace():Void;
+	function skipLeadingWhitespace():Dynamic;
 	/**
 		Moves the cursor to the beginning of the next paragraph 
 	**/
-	function moveToBeginningOfNextParagraph():Void;
+	function moveToBeginningOfNextParagraph():Dynamic;
 	/**
 		Moves the cursor to the beginning of the previous paragraph 
 	**/
-	function moveToBeginningOfPreviousParagraph():Void;
+	function moveToBeginningOfPreviousParagraph():Dynamic;
 	function getPreviousWordBoundaryBufferPosition(options:Dynamic<Dynamic>):Dynamic;
 	function getNextWordBoundaryBufferPosition(options:Dynamic<Dynamic>):Dynamic;
 	/**
@@ -155,20 +155,20 @@ package atom;
 	/**
 		Sets whether the cursor is visible. 
 	**/
-	function setVisible():Void;
+	function setVisible():Dynamic;
 	function isVisible():Dynamic;
 	/**
 		Compare this cursor's buffer position to another cursor's buffer position.
 	**/
-	function compare(otherCursor:atom.Cursor):Void;
+	function compare(otherCursor:atom.Cursor):Dynamic;
 	/**
 		Prevents this cursor from causing scrolling. 
 	**/
-	function clearAutoscroll():Void;
+	function clearAutoscroll():Dynamic;
 	/**
 		Deselects the current selection. 
 	**/
-	function clearSelection():Void;
+	function clearSelection():Dynamic;
 	/**
 		Get the RegExp used by the cursor to determine what a "word" is.
 	**/

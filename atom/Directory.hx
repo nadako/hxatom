@@ -18,7 +18,7 @@ package atom;
 		Return a {Boolean}, true if this {Directory} is the root directory
 		of the filesystem, or false if it isn't. 
 	**/
-	function isRoot():Void;
+	function isRoot():Dynamic;
 	function getPath():String;
 	function getRealPathSync():String;
 	function getBaseName():String;
@@ -45,6 +45,6 @@ package atom;
 	/**
 		Reads file entries in this directory from disk asynchronously.
 	**/
-	function getEntries(callback:haxe.Constraints.Function):Void;
+	function getEntries(callback:haxe.Constraints.Function):Dynamic;
 	function contains():Dynamic;
 }

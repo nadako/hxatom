@@ -30,7 +30,7 @@ package atom;
 	/**
 		Get the path to the apm command.
 	**/
-	function getApmPath():Void;
+	function getApmPath():Dynamic;
 	/**
 		Get the paths being used to look for packages.
 	**/
@@ -38,7 +38,7 @@ package atom;
 	/**
 		Resolve the given package name to a path on disk.
 	**/
-	function resolvePackagePath(name:String):Void;
+	function resolvePackagePath(name:String):Dynamic;
 	/**
 		Is the package with the given name bundled with Atom?
 	**/
@@ -58,7 +58,7 @@ package atom;
 	/**
 		Get an {Array} of all the active {Package}s. 
 	**/
-	function getActivePackages():Void;
+	function getActivePackages():Dynamic;
 	/**
 		Get the active {Package} with the given name.
 	**/
@@ -70,7 +70,7 @@ package atom;
 	/**
 		Get an {Array} of all the loaded {Package}s 
 	**/
-	function getLoadedPackages():Void;
+	function getLoadedPackages():Dynamic;
 	/**
 		Get the loaded {Package} with the given name.
 	**/
@@ -82,13 +82,13 @@ package atom;
 	/**
 		Get an {Array} of {String}s of all the available package paths. 
 	**/
-	function getAvailablePackagePaths():Void;
+	function getAvailablePackagePaths():Dynamic;
 	/**
 		Get an {Array} of {String}s of all the available package names. 
 	**/
-	function getAvailablePackageNames():Void;
+	function getAvailablePackageNames():Dynamic;
 	/**
 		Get an {Array} of {String}s of all the available package metadata. 
 	**/
-	function getAvailablePackageMetadata():Void;
+	function getAvailablePackageMetadata():Dynamic;
 }

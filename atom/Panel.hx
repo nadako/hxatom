@@ -8,7 +8,7 @@ package atom;
 	/**
 		Destroy and remove this panel from the UI. 
 	**/
-	function destroy():Void;
+	function destroy():Dynamic;
 	/**
 		Invoke the given callback when the pane hidden or shown.
 	**/
@@ -23,9 +23,9 @@ package atom;
 	/**
 		Hide this panel 
 	**/
-	function hide():Void;
+	function hide():Dynamic;
 	/**
 		Show this panel 
 	**/
-	function show():Void;
+	function show():Dynamic;
 }

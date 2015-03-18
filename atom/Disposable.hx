@@ -12,5 +12,5 @@ package atom;
 		Perform the disposal action, indicating that the resource associated
 		with this disposable is no longer needed.
 	**/
-	function dispose():Void;
+	function dispose():Dynamic;
 }

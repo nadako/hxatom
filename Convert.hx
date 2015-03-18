@@ -77,7 +77,8 @@ class Convert {
             if (cls.instanceMethods != null)
                 for (m in cls.instanceMethods) {
                     var f = convertMethod(m);
-                    if (f.name == "constructor") f.name = "new";
+                    if (f.name == "constructor")
+                        f.name = "new";
                     fields.push(f);
                 }
 
@@ -116,7 +117,9 @@ class Convert {
     }
 
     static function convertMethod(m:AtomMethod):Field {
-        var returnType = macro : Void;
+        var returnType = macro : Dynamic;
+        if (m.name == "constructor")
+            returnType = macro : Void;
         if (m.returnValues != null)
             returnType = makeEither([for (r in m.returnValues) r.type]);
 

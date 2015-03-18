@@ -13,7 +13,7 @@ package atom;
 	/**
 		Unsubscribe all handlers. 
 	**/
-	function dispose():Void;
+	function dispose():Dynamic;
 	/**
 		Register the given handler function to be invoked whenever events by
 		the given name are emitted via {::emit}.
@@ -28,5 +28,5 @@ package atom;
 	/**
 		Invoke handlers registered via {::on} for the given event name.
 	**/
-	function emit(eventName:Dynamic, value:Dynamic):Void;
+	function emit(eventName:Dynamic, value:Dynamic):Dynamic;
 }

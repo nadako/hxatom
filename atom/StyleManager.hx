@@ -26,7 +26,7 @@ package atom;
 	/**
 		Get all loaded style elements. 
 	**/
-	function getStyleElements():Void;
+	function getStyleElements():Dynamic;
 	/**
 		Get the path of the user style sheet in `~/.atom`.
 	**/

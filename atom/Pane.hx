@@ -69,19 +69,19 @@ package atom;
 	/**
 		Makes the next item active. 
 	**/
-	function activateNextItem():Void;
+	function activateNextItem():Dynamic;
 	/**
 		Makes the previous item active. 
 	**/
-	function activatePreviousItem():Void;
+	function activatePreviousItem():Dynamic;
 	/**
 		Move the active tab to the right. 
 	**/
-	function moveItemRight():Void;
+	function moveItemRight():Dynamic;
 	/**
 		Move the active tab to the left 
 	**/
-	function moveItemLeft():Void;
+	function moveItemLeft():Dynamic;
 	/**
 		Get the index of the active item.
 	**/
@@ -89,12 +89,12 @@ package atom;
 	/**
 		Activate the item at the given index.
 	**/
-	function activateItemAtIndex(index:Float):Void;
+	function activateItemAtIndex(index:Float):Dynamic;
 	/**
 		Make the given item *active*, causing it to be displayed by
 		the pane's view. 
 	**/
-	function activateItem():Void;
+	function activateItem():Dynamic;
 	/**
 		Add the given item to the pane.
 	**/
@@ -106,54 +106,54 @@ package atom;
 	/**
 		Move the given item to the given index.
 	**/
-	function moveItem(item:Dynamic, index:Float):Void;
+	function moveItem(item:Dynamic, index:Float):Dynamic;
 	/**
 		Move the given item to the given index on another pane.
 	**/
-	function moveItemToPane(item:Dynamic, pane:atom.Pane, index:Float):Void;
+	function moveItemToPane(item:Dynamic, pane:atom.Pane, index:Float):Dynamic;
 	/**
 		Destroy the active item and activate the next item. 
 	**/
-	function destroyActiveItem():Void;
+	function destroyActiveItem():Dynamic;
 	/**
 		Destroy the given item.
 	**/
-	function destroyItem(item:Dynamic):Void;
+	function destroyItem(item:Dynamic):Dynamic;
 	/**
 		Destroy all items. 
 	**/
-	function destroyItems():Void;
+	function destroyItems():Dynamic;
 	/**
 		Destroy all items except for the active item. 
 	**/
-	function destroyInactiveItems():Void;
+	function destroyInactiveItems():Dynamic;
 	/**
 		Save the active item. 
 	**/
-	function saveActiveItem():Void;
+	function saveActiveItem():Dynamic;
 	/**
 		Prompt the user for a location and save the active item with the
 		path they select.
 	**/
-	function saveActiveItemAs(nextAction:haxe.Constraints.Function):Void;
+	function saveActiveItemAs(nextAction:haxe.Constraints.Function):Dynamic;
 	/**
 		Save the given item.
 	**/
-	function saveItem(item:Dynamic, nextAction:haxe.Constraints.Function):Void;
+	function saveItem(item:Dynamic, nextAction:haxe.Constraints.Function):Dynamic;
 	/**
 		Prompt the user for a location and save the active item with the
 		path they select.
 	**/
-	function saveItemAs(item:Dynamic, nextAction:haxe.Constraints.Function):Void;
+	function saveItemAs(item:Dynamic, nextAction:haxe.Constraints.Function):Dynamic;
 	/**
 		Save all items. 
 	**/
-	function saveItems():Void;
+	function saveItems():Dynamic;
 	/**
 		Return the first item that matches the given URI or undefined if
 		none exists.
 	**/
-	function itemForURI(uri:String):Void;
+	function itemForURI(uri:String):Dynamic;
 	/**
 		Activate the first item that matches the given URI.
 	**/
@@ -165,11 +165,11 @@ package atom;
 	/**
 		Makes this pane the *active* pane, causing it to gain focus. 
 	**/
-	function activate():Void;
+	function activate():Dynamic;
 	/**
 		Close the pane and destroy all its items.
 	**/
-	function destroy():Void;
+	function destroy():Dynamic;
 	/**
 		Create a new pane to the left of this pane.
 	**/

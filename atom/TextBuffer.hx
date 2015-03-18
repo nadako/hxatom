@@ -94,11 +94,11 @@ package atom;
 	/**
 		Set the path for the buffer's associated file.
 	**/
-	function setPath(filePath:String):Void;
+	function setPath(filePath:String):Dynamic;
 	/**
 		Sets the character set encoding for this buffer.
 	**/
-	function setEncoding(encoding:String):Void;
+	function setEncoding(encoding:String):Dynamic;
 	function getEncoding():String;
 	/**
 		Get the path of the associated file.
@@ -158,7 +158,7 @@ package atom;
 		Replace the current buffer contents by applying a diff based on the
 		given text.
 	**/
-	function setTextViaDiff(text:String):Void;
+	function setTextViaDiff(text:String):Dynamic;
 	/**
 		Set the text in the given range.
 	**/
@@ -213,19 +213,19 @@ package atom;
 	/**
 		Undo the last operation. If a transaction is in progress, aborts it. 
 	**/
-	function undo():Void;
+	function undo():Dynamic;
 	/**
 		Redo the last operation 
 	**/
-	function redo():Void;
+	function redo():Dynamic;
 	/**
 		Batch multiple operations as a single undo/redo step.
 	**/
-	function transact(groupingInterval:Float, fn:haxe.Constraints.Function):Void;
+	function transact(groupingInterval:Float, fn:haxe.Constraints.Function):Dynamic;
 	/**
 		Clear the undo stack. 
 	**/
-	function clearUndoStack():Void;
+	function clearUndoStack():Dynamic;
 	/**
 		Create a pointer to the current state of the buffer for use
 		with {::revertToCheckpoint} and {::groupChangesSinceCheckpoint}.
@@ -245,22 +245,22 @@ package atom;
 		Scan regular expression matches in the entire buffer, calling the
 		given iterator function on each match.
 	**/
-	function scan(regex:js.RegExp, iterator:haxe.Constraints.Function):Void;
+	function scan(regex:js.RegExp, iterator:haxe.Constraints.Function):Dynamic;
 	/**
 		Scan regular expression matches in the entire buffer in reverse
 		order, calling the given iterator function on each match.
 	**/
-	function backwardsScan(regex:js.RegExp, iterator:haxe.Constraints.Function):Void;
+	function backwardsScan(regex:js.RegExp, iterator:haxe.Constraints.Function):Dynamic;
 	/**
 		Scan regular expression matches in a given range , calling the given
 		iterator function on each match.
 	**/
-	function scanInRange(regex:js.RegExp, range:atom.Range, iterator:haxe.Constraints.Function):Void;
+	function scanInRange(regex:js.RegExp, range:atom.Range, iterator:haxe.Constraints.Function):Dynamic;
 	/**
 		Scan regular expression matches in a given range in reverse order,
 		calling the given iterator function on each match.
 	**/
-	function backwardsScanInRange(regex:js.RegExp, range:atom.Range, iterator:haxe.Constraints.Function):Void;
+	function backwardsScanInRange(regex:js.RegExp, range:atom.Range, iterator:haxe.Constraints.Function):Dynamic;
 	/**
 		Replace all regular expression matches in the entire buffer.
 	**/
@@ -315,13 +315,13 @@ package atom;
 	/**
 		Save the buffer. 
 	**/
-	function save():Void;
+	function save():Dynamic;
 	/**
 		Save the buffer at a specific path.
 	**/
-	function saveAs(filePath:Dynamic):Void;
+	function saveAs(filePath:Dynamic):Dynamic;
 	/**
 		Reload the buffer's contents from disk.
 	**/
-	function reload():Void;
+	function reload():Dynamic;
 }

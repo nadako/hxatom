@@ -7,23 +7,23 @@ package atom;
 		Invoke `callback` when style sheet changes associated with
 		updating the list of active themes have completed.
 	**/
-	function onDidChangeActiveThemes(callback:haxe.Constraints.Function):Void;
+	function onDidChangeActiveThemes(callback:haxe.Constraints.Function):Dynamic;
 	/**
 		Get an array of all the loaded theme names. 
 	**/
-	function getLoadedThemeNames():Void;
+	function getLoadedThemeNames():Dynamic;
 	/**
 		Get an array of all the loaded themes. 
 	**/
-	function getLoadedThemes():Void;
+	function getLoadedThemes():Dynamic;
 	/**
 		Get an array of all the active theme names. 
 	**/
-	function getActiveThemeNames():Void;
+	function getActiveThemeNames():Dynamic;
 	/**
 		Get an array of all the active themes. 
 	**/
-	function getActiveThemes():Void;
+	function getActiveThemes():Dynamic;
 	/**
 		Get the enabled theme names from the config.
 	**/

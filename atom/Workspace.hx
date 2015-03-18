@@ -111,11 +111,11 @@ package atom;
 	/**
 		Make the next pane active. 
 	**/
-	function activateNextPane():Void;
+	function activateNextPane():Dynamic;
 	/**
 		Make the previous pane active. 
 	**/
-	function activatePreviousPane():Void;
+	function activatePreviousPane():Dynamic;
 	/**
 		Get the first {Pane} with an item for the given URI.
 	**/
@@ -127,7 +127,7 @@ package atom;
 	/**
 		Get an {Array} of all the panel items at the bottom of the editor window. 
 	**/
-	function getBottomPanels():Void;
+	function getBottomPanels():Dynamic;
 	/**
 		Adds a panel item to the bottom of the editor window.
 	**/
@@ -135,7 +135,7 @@ package atom;
 	/**
 		Get an {Array} of all the panel items to the left of the editor window. 
 	**/
-	function getLeftPanels():Void;
+	function getLeftPanels():Dynamic;
 	/**
 		Adds a panel item to the left of the editor window.
 	**/
@@ -143,7 +143,7 @@ package atom;
 	/**
 		Get an {Array} of all the panel items to the right of the editor window. 
 	**/
-	function getRightPanels():Void;
+	function getRightPanels():Dynamic;
 	/**
 		Adds a panel item to the right of the editor window.
 	**/
@@ -151,7 +151,7 @@ package atom;
 	/**
 		Get an {Array} of all the panel items at the top of the editor window. 
 	**/
-	function getTopPanels():Void;
+	function getTopPanels():Dynamic;
 	/**
 		Adds a panel item to the top of the editor window above the tabs.
 	**/
@@ -159,7 +159,7 @@ package atom;
 	/**
 		Get an {Array} of all the modal panel items 
 	**/
-	function getModalPanels():Void;
+	function getModalPanels():Dynamic;
 	/**
 		Adds a panel item as a modal dialog.
 	**/

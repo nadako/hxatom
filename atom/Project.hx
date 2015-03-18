@@ -11,7 +11,7 @@ package atom;
 		Get an {Array} of {GitRepository}s associated with the project's
 		directories.
 	**/
-	function getRepositories():Void;
+	function getRepositories():Dynamic;
 	/**
 		Get the repository for a given directory asynchronously.
 	**/
@@ -20,23 +20,23 @@ package atom;
 		Get an {Array} of {String}s containing the paths of the project's
 		directories. 
 	**/
-	function getPaths():Void;
+	function getPaths():Dynamic;
 	/**
 		Set the paths of the project's directories.
 	**/
-	function setPaths(projectPaths:Array<Dynamic>):Void;
+	function setPaths(projectPaths:Array<Dynamic>):Dynamic;
 	/**
 		Add a path to the project's list of root paths
 	**/
-	function addPath(projectPath:String):Void;
+	function addPath(projectPath:String):Dynamic;
 	/**
 		remove a path from the project's list of root paths.
 	**/
-	function removePath(projectPath:String):Void;
+	function removePath(projectPath:String):Dynamic;
 	/**
 		Get an {Array} of {Directory}s associated with this project. 
 	**/
-	function getDirectories():Void;
+	function getDirectories():Dynamic;
 	/**
 		Get the path to the project directory that contains the given path,
 		and the relative path from that project directory to the given path.

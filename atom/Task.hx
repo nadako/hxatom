@@ -14,11 +14,11 @@ package atom;
 	/**
 		Starts the task.
 	**/
-	function start(args:Dynamic, callback:haxe.Constraints.Function):Void;
+	function start(args:Dynamic, callback:haxe.Constraints.Function):Dynamic;
 	/**
 		Send message to the task.
 	**/
-	function send(message:Dynamic):Void;
+	function send(message:Dynamic):Dynamic;
 	/**
 		Call a function when an event is emitted by the child process
 	**/
@@ -26,5 +26,5 @@ package atom;
 	/**
 		Forcefully stop the running task.
 	**/
-	function terminate():Void;
+	function terminate():Dynamic;
 }

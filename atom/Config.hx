@@ -30,12 +30,12 @@ package atom;
 	/**
 		Restore the setting at `keyPath` to its default value.
 	**/
-	function unset(keyPath:String, options:Dynamic<Dynamic>):Void;
+	function unset(keyPath:String, options:Dynamic<Dynamic>):Dynamic;
 	/**
 		Get an {Array} of all of the `source` {String}s with which
 		settings have been added via {::set}. 
 	**/
-	function getSources():Void;
+	function getSources():Dynamic;
 	/**
 		Retrieve the schema for a specific key path. The schema will tell
 		you what type the keyPath expects, and other metadata about the config
@@ -45,11 +45,11 @@ package atom;
 	/**
 		Get the {String} path to the config file being used. 
 	**/
-	function getUserConfigPath():Void;
+	function getUserConfigPath():Dynamic;
 	/**
 		Suppress calls to handler functions registered with {::onDidChange}
 		and {::observe} for the duration of `callback`. After `callback` executes,
 		handlers will be called once if the value for their key-path has changed.
 	**/
-	function transact(callback:haxe.Constraints.Function):Void;
+	function transact(callback:haxe.Constraints.Function):Dynamic;
 }
