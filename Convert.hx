@@ -1,12 +1,19 @@
 import haxe.DynamicAccess;
 import haxe.macro.Expr;
 using haxe.macro.Tools;
+using StringTools;
 
 typedef AtomApi = {
     classes:DynamicAccess<AtomClass>,
 }
 
+typedef Desc = {
+    summary:String,
+    description:String,
+}
+
 typedef AtomClass = {
+    >Desc,
     name:String,
     superClass:String,
     classMethods:Array<AtomMethod>,
@@ -15,8 +22,13 @@ typedef AtomClass = {
     instanceProperties:Array<AtomProperty>,
 }
 
-typedef AtomMethod = {
+typedef AtomField = {
+    >Desc,
     name:String,
+}
+
+typedef AtomMethod = {
+    >AtomField,
     arguments:Array<AtomArg>,
     returnValues:Array<AtomReturn>,
 }
@@ -32,8 +44,7 @@ typedef AtomReturn = {
 }
 
 typedef AtomProperty = {
-    name:String,
-
+    >AtomField,
 }
 
 class Convert {
@@ -86,6 +97,11 @@ class Convert {
                     {name: ":native", params: [{expr: EConst(CString(cls.name)), pos: pos}], pos: pos}
                 ]
             });
+
+            if (cls.summary != null) {
+                s = "/**\n\t" + cls.summary.replace("\n", "\n\t") + "\n**/\n" + s;
+            }
+
             sys.io.File.saveContent("atom/" + cls.name + ".hx", s);
         }
     }
@@ -95,6 +111,7 @@ class Convert {
             pos: pos,
             name: p.name,
             kind: FVar(macro : Dynamic),
+            doc: p.summary,
         };
     }
 
@@ -117,7 +134,8 @@ class Convert {
                 ret: returnType,
                 expr: null
             }),
-            access: []
+            access: [],
+            doc: m.summary,
         };
     }
 
