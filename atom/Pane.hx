@@ -173,17 +173,17 @@ package atom;
 	/**
 		Create a new pane to the left of this pane.
 	**/
-	function splitLeft(params:Dynamic<Dynamic>):atom.Pane;
+	function splitLeft(params:{ var items : Array<Dynamic>; var copyActiveItem : Bool; }):atom.Pane;
 	/**
 		Create a new pane to the right of this pane.
 	**/
-	function splitRight(params:Dynamic<Dynamic>):atom.Pane;
+	function splitRight(params:{ var items : Array<Dynamic>; var copyActiveItem : Bool; }):atom.Pane;
 	/**
 		Creates a new pane above the receiver.
 	**/
-	function splitUp(params:Dynamic<Dynamic>):atom.Pane;
+	function splitUp(params:{ var items : Array<Dynamic>; var copyActiveItem : Bool; }):atom.Pane;
 	/**
 		Creates a new pane below the receiver.
 	**/
-	function splitDown(params:Dynamic<Dynamic>):atom.Pane;
+	function splitDown(params:{ var items : Array<Dynamic>; var copyActiveItem : Bool; }):atom.Pane;
 }

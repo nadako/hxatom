@@ -20,7 +20,7 @@ package atom;
 	/**
 		Modifies the buffer {Range} for the selection.
 	**/
-	function setBufferRange(screenRange:atom.Range, options:Dynamic<Dynamic>):Dynamic;
+	function setBufferRange(screenRange:atom.Range, options:{ var preserveFolds : Dynamic; var autoscroll : atom.TextEditor; }):Dynamic;
 	function getBufferRowRange():Dynamic;
 	/**
 		Determines if the selection contains anything. 
@@ -154,7 +154,7 @@ package atom;
 	/**
 		Replaces text at the current selection.
 	**/
-	function insertText(text:String, options:Dynamic<Dynamic>):Dynamic;
+	function insertText(text:String, options:{ var select : Dynamic; var autoIndent : Dynamic; var autoIndentNewline : Dynamic; var autoDecreaseIndent : Dynamic; var normalizeLineEndings : Bool; var undo : Dynamic; }):Dynamic;
 	/**
 		Removes the first character before the selection if the selection
 		is empty otherwise it deletes the selection. 

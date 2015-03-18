@@ -7,7 +7,7 @@ package atom;
 	/**
 		Runs the given command by spawning a new child process.
 	**/
-	function new(options:Dynamic<Dynamic>):Void;
+	function new(options:{ var command : String; var args : Array<Dynamic>; var options : Dynamic<Dynamic>; var stdout : haxe.Constraints.Function; var stderr : haxe.Constraints.Function; var exit : haxe.Constraints.Function; }):Void;
 	/**
 		Will call your callback when an error will be raised by the process.
 		Usually this is due to the command not being available or not on the PATH.

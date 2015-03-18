@@ -6,7 +6,7 @@ package atom;
 	/**
 		Creates a new GitRepository instance.
 	**/
-	static function open(path:String, options:Dynamic<Dynamic>):atom.GitRepository;
+	static function open(path:String, options:{ var refreshOnWindowFocus : Bool; }):atom.GitRepository;
 	/**
 		Destroy this {GitRepository} object.
 	**/

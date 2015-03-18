@@ -13,7 +13,7 @@ package atom;
 	/**
 		Find all registered commands matching a query.
 	**/
-	function findCommands(params:Dynamic<Dynamic>):Array<Dynamic>;
+	function findCommands(params:{ var target : Dynamic; }):Array<Dynamic>;
 	/**
 		Simulate the dispatch of a command on a DOM node.
 	**/

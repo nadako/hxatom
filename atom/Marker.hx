@@ -49,7 +49,7 @@ package atom;
 	/**
 		Modifies the buffer range of the display marker.
 	**/
-	function setBufferRange(bufferRange:atom.Range, properties:Dynamic<Dynamic>):Dynamic;
+	function setBufferRange(bufferRange:atom.Range, properties:{ var reversed : Bool; }):Dynamic;
 	/**
 		Gets the screen range of the display marker.
 	**/
@@ -57,7 +57,7 @@ package atom;
 	/**
 		Modifies the screen range of the display marker.
 	**/
-	function setScreenRange(screenRange:atom.Range, properties:Dynamic<Dynamic>):Dynamic;
+	function setScreenRange(screenRange:atom.Range, properties:{ var reversed : Bool; }):Dynamic;
 	/**
 		Retrieves the buffer position of the marker's start. This will always be
 		less than or equal to the result of {Marker::getEndBufferPosition}.

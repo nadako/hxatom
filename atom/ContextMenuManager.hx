@@ -7,5 +7,5 @@ package atom;
 	/**
 		Add context menu items scoped by CSS selectors.
 	**/
-	function add(itemsBySelector:Dynamic<Dynamic>):Dynamic;
+	function add(itemsBySelector:{ var label : String; var command : String; var submenu : Array<Dynamic>; var type : Dynamic; var created : haxe.Constraints.Function; var shouldDisplay : haxe.Constraints.Function; }):Dynamic;
 }

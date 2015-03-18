@@ -103,7 +103,7 @@ package atom;
 	/**
 		Open a new Atom window using the given options.
 	**/
-	function open(options:Dynamic<Dynamic>):Dynamic;
+	function open(options:{ var pathsToOpen : Array<Dynamic>; var newWindow : Bool; var devMode : Bool; var safeMode : Bool; }):Dynamic;
 	/**
 		Show the native dialog to prompt the user to select a folder.
 	**/
@@ -168,7 +168,7 @@ package atom;
 	/**
 		A flexible way to open a dialog akin to an alert dialog.
 	**/
-	function confirm(options:Dynamic<Dynamic>):Float;
+	function confirm(options:{ var message : String; var detailedMessage : String; var buttons : Dynamic; }):Float;
 	/**
 		Open the dev tools for the current window. 
 	**/

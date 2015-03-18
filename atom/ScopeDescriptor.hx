@@ -8,6 +8,6 @@ package atom;
 	/**
 		Create a {ScopeDescriptor} object.
 	**/
-	function new(object:Dynamic<Dynamic>):Void;
+	function new(object:{ var scopes : Array<Dynamic>; }):Void;
 	function getScopesArray():Array<Dynamic>;
 }

@@ -8,11 +8,11 @@ package atom;
 	/**
 		Create a keydown DOM event for testing purposes.
 	**/
-	static function buildKeydownEvent(key:Dynamic, options:Dynamic<Dynamic>):Dynamic;
+	static function buildKeydownEvent(key:Dynamic, options:{ var ctrl : Bool; var alt : Bool; var shift : Bool; var cmd : Bool; var which : Float; var target : Dynamic; }):Dynamic;
 	/**
 		Create a new KeymapManager.
 	**/
-	function new(options:Dynamic<Dynamic>):Void;
+	function new(options:{ var defaultTarget : Dynamic; }):Void;
 	/**
 		Unwatch all watched paths. 
 	**/
@@ -47,11 +47,11 @@ package atom;
 	/**
 		Get the key bindings for a given command and optional target.
 	**/
-	function findKeyBindings(params:Dynamic<Dynamic>):Array<Dynamic>;
+	function findKeyBindings(params:{ var keystrokes : String; var command : String; var target : Dynamic; }):Array<Dynamic>;
 	/**
 		Load the key bindings from the given path.
 	**/
-	function loadKeymap(path:String, options:Dynamic<Dynamic>):Dynamic;
+	function loadKeymap(path:String, options:{ var watch : Dynamic; }):Dynamic;
 	/**
 		Cause the keymap to reload the key bindings file at the given path
 		whenever it changes.

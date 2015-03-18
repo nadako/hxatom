@@ -37,6 +37,7 @@ typedef AtomArg = {
     name:String,
     type:String,
     isOptional:Bool,
+    children:Array<AtomArg>,
 }
 
 typedef AtomReturn = {
@@ -126,7 +127,7 @@ class Convert {
         var args:Array<FunctionArg> = [];
         if (m.arguments != null) {
             for (a in m.arguments)
-                args.push({name: a.name, type: convertType(a.type)});
+                args.push({name: a.name, type: convertType(a.type, a.children)});
         }
 
         return {
@@ -142,7 +143,12 @@ class Convert {
         };
     }
 
-    static function convertType(type:String):ComplexType {
+    static var kwds = ["class"];
+    static function escapeName(n:String):String {
+        return if (kwds.indexOf(n) != -1) n + "_" else n; // TODO: we have to make some abstract for that
+    }
+
+    static function convertType(type:String, children:Array<AtomArg>):ComplexType {
         return switch (type) {
             case null:
                 macro : Dynamic;
@@ -154,7 +160,21 @@ class Convert {
                 macro : Bool;
             case "Number":
                 macro : Float;
-            case "Object" | "Package":
+            case "Object":
+                if (children != null) {
+                    var fields:Array<Field> = [];
+                    for (child in children) {
+                        fields.push({
+                            pos: pos,
+                            name: escapeName(child.name),
+                            kind: FVar(convertType(child.type, child.children))
+                        });
+                    }
+                    TAnonymous(fields);
+                } else {
+                    macro : Dynamic<Dynamic>;
+                }
+            case "Package":
                 macro : Dynamic<Dynamic>;
             case "RegExp":
                 macro : js.RegExp;
@@ -170,7 +190,7 @@ class Convert {
     static function makeEither(types:Array<String>):ComplexType {
         var uniq = new Map();
         for (t in types) {
-            var ct = convertType(t);
+            var ct = convertType(t, null);
             var s = ct.toString();
             if (s == "Dynamic")
                 return ct;
