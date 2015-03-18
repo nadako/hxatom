@@ -25,7 +25,7 @@ package atom;
 		When your callback has been invoked, the file will have unsubscribed from
 		the file watches.
 	**/
-	function onWillThrowWatchError(callback:haxe.Constraints.Function):Dynamic;
+	function onWillThrowWatchError(callback:{ var error : Dynamic<Dynamic>; var handle : haxe.Constraints.Function; } -> Dynamic):Dynamic;
 	function isFile():Bool;
 	function isDirectory():Bool;
 	function exists():Bool;

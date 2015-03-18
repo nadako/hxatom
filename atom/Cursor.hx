@@ -7,7 +7,7 @@ package atom;
 	/**
 		Calls your `callback` when the cursor has been moved.
 	**/
-	function onDidChangePosition(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidChangePosition(callback:{ var oldBufferPosition : atom.Point; var oldScreenPosition : atom.Point; var newBufferPosition : atom.Point; var newScreenPosition : atom.Point; var textChanged : Bool; var Cursor : atom.Cursor; } -> Dynamic):atom.Disposable;
 	/**
 		Calls your `callback` when the cursor is destroyed
 	**/
@@ -15,7 +15,7 @@ package atom;
 	/**
 		Calls your `callback` when the cursor's visibility has changed
 	**/
-	function onDidChangeVisibility(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidChangeVisibility(callback:Bool -> Dynamic):atom.Disposable;
 	/**
 		Moves a cursor to a given screen position.
 	**/

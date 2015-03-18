@@ -153,7 +153,13 @@ class Convert {
             case null:
                 macro : Dynamic;
             case "Function":
-                macro : haxe.Constraints.Function;
+                if (children != null) {
+                    var args = [for (child in children) convertType(child.type, child.children)];
+                    var ret = macro : Dynamic;
+                    TFunction(args, ret);
+                } else {
+                    macro : haxe.Constraints.Function;
+                }
             case "String":
                 macro : String;
             case "Boolean" | "Bool":
@@ -174,10 +180,12 @@ class Convert {
                 } else {
                     macro : Dynamic<Dynamic>;
                 }
-            case "Package":
+            case "Package" | "KeyBinding":
                 macro : Dynamic<Dynamic>;
             case "RegExp":
                 macro : js.RegExp;
+            case "Error":
+                macro : js.Error;
             case "Promise":
                 macro : js.Promise<Dynamic>;
             case "Array" | "array":

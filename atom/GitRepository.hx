@@ -21,7 +21,7 @@ package atom;
 		changed. When a file is updated, reloaded, etc, and the status changes, this
 		will be fired.
 	**/
-	function onDidChangeStatus(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidChangeStatus(callback:{ var path : String; var pathStatus : Float; } -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when a multiple files' statuses have
 		changed. For example, on window focus, the status of all the paths in the

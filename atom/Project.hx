@@ -6,7 +6,7 @@ package atom;
 	/**
 		Invoke the given callback when the project paths change.
 	**/
-	function onDidChangePaths(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidChangePaths(callback:Array<Dynamic> -> Dynamic):atom.Disposable;
 	/**
 		Get an {Array} of {GitRepository}s associated with the project's
 		directories.

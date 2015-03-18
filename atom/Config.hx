@@ -8,12 +8,12 @@ package atom;
 		than {::onDidChange} in that it will immediately call your callback with the
 		current value of the config entry.
 	**/
-	function observe(keyPath:String, options:{ var scopeDescriptor : atom.ScopeDescriptor; }, callback:haxe.Constraints.Function):atom.Disposable;
+	function observe(keyPath:String, options:{ var scopeDescriptor : atom.ScopeDescriptor; }, callback:Dynamic -> Dynamic):atom.Disposable;
 	/**
 		Add a listener for changes to a given key path. If `keyPath` is
 		not specified, your callback will be called on changes to any key.
 	**/
-	function onDidChange(keyPath:String, optional:{ var scopeDescriptor : atom.ScopeDescriptor; }, callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidChange(keyPath:String, optional:{ var scopeDescriptor : atom.ScopeDescriptor; }, callback:{ var newValue : Dynamic; var oldValue : Dynamic; var keyPath : Dynamic; } -> Dynamic):atom.Disposable;
 	/**
 		Retrieves the setting for the given key.
 	**/

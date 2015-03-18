@@ -19,7 +19,7 @@ package atom;
 	/**
 		Invoke the given callback when the state of the marker changes.
 	**/
-	function onDidChange(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidChange(callback:{ var oldHeadPosition : atom.Point; var newHeadPosition : atom.Point; var oldTailPosition : atom.Point; var newTailPosition : atom.Point; var wasValid : Bool; var isValid : Bool; var hadTail : Bool; var hasTail : Bool; var oldProperties : Dynamic<Dynamic>; var newProperties : Dynamic<Dynamic>; var textChanged : Bool; } -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when the marker is destroyed.
 	**/

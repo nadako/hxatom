@@ -6,12 +6,12 @@ package atom;
 	/**
 		Invoke the given callback when a grammar is added to the registry.
 	**/
-	function onDidAddGrammar(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidAddGrammar(callback:atom.Grammar -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when a grammar is updated due to a grammar
 		it depends on being added or removed from the registry.
 	**/
-	function onDidUpdateGrammar(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidUpdateGrammar(callback:atom.Grammar -> Dynamic):atom.Disposable;
 	/**
 		Get all the grammars in this registry.
 	**/
@@ -35,7 +35,7 @@ package atom;
 	/**
 		Read a grammar asynchronously but don't add it to the registry.
 	**/
-	function readGrammar(grammarPath:String, callback:haxe.Constraints.Function):Dynamic;
+	function readGrammar(grammarPath:String, callback:js.Error -> atom.Grammar -> Dynamic):Dynamic;
 	/**
 		Read a grammar synchronously and add it to this registry.
 	**/
@@ -43,7 +43,7 @@ package atom;
 	/**
 		Read a grammar asynchronously and add it to the registry.
 	**/
-	function loadGrammar(grammarPath:String, callback:haxe.Constraints.Function):Dynamic;
+	function loadGrammar(grammarPath:String, callback:js.Error -> atom.Grammar -> Dynamic):Dynamic;
 	/**
 		Get the grammar override for the given file path.
 	**/

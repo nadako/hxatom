@@ -13,7 +13,7 @@ package atom;
 	/**
 		When the {Decoration} is updated via {Decoration::update}.
 	**/
-	function onDidChangeProperties(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidChangeProperties(callback:{ var oldProperties : Dynamic<Dynamic>; var newProperties : Dynamic<Dynamic>; } -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when the {Decoration} is destroyed
 	**/

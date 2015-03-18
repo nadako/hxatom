@@ -21,21 +21,21 @@ package atom;
 		Invoke the given callback when one or more keystrokes completely
 		match a key binding.
 	**/
-	function onDidMatchBinding(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidMatchBinding(callback:{ var keystrokes : String; var binding : Dynamic<Dynamic>; var keyboardEventTarget : Dynamic; } -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when one or more keystrokes partially
 		match a binding.
 	**/
-	function onDidPartiallyMatchBindings(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidPartiallyMatchBindings(callback:{ var keystrokes : String; var partiallyMatchedBindings : Dynamic<Dynamic>; var keyboardEventTarget : Dynamic; } -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when one or more keystrokes fail to match
 		any bindings.
 	**/
-	function onDidFailToMatchBinding(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidFailToMatchBinding(callback:{ var keystrokes : String; var keyboardEventTarget : Dynamic; } -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when a keymap file not able to be loaded.
 	**/
-	function onDidFailToReadFile(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidFailToReadFile(callback:{ var message : String; var stack : String; } -> Dynamic):atom.Disposable;
 	/**
 		Add sets of key bindings grouped by CSS selector.
 	**/

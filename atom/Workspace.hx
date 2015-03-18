@@ -8,69 +8,69 @@ package atom;
 		Invoke the given callback with all current and future text
 		editors in the workspace.
 	**/
-	function observeTextEditors(callback:haxe.Constraints.Function):atom.Disposable;
+	function observeTextEditors(callback:atom.TextEditor -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback with all current and future panes items
 		in the workspace.
 	**/
-	function observePaneItems(callback:haxe.Constraints.Function):atom.Disposable;
+	function observePaneItems(callback:Dynamic -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when the active pane item changes.
 	**/
-	function onDidChangeActivePaneItem(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidChangeActivePaneItem(callback:Dynamic -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback with the current active pane item and
 		with all future active pane items in the workspace.
 	**/
-	function observeActivePaneItem(callback:haxe.Constraints.Function):atom.Disposable;
+	function observeActivePaneItem(callback:Dynamic -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback whenever an item is opened. Unlike
 		{::onDidAddPaneItem}, observers will be notified for items that are already
 		present in the workspace when they are reopened.
 	**/
-	function onDidOpen(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidOpen(callback:{ var uri : String; var item : Dynamic; var pane : Dynamic; var index : Dynamic; } -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when a pane is added to the workspace.
 	**/
-	function onDidAddPane(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidAddPane(callback:{ var pane : Dynamic; } -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when a pane is destroyed in the
 		workspace.
 	**/
-	function onDidDestroyPane(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidDestroyPane(callback:{ var pane : Dynamic; } -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback with all current and future panes in the
 		workspace.
 	**/
-	function observePanes(callback:haxe.Constraints.Function):atom.Disposable;
+	function observePanes(callback:atom.Pane -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when the active pane changes.
 	**/
-	function onDidChangeActivePane(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidChangeActivePane(callback:atom.Pane -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback with the current active pane and when
 		the active pane changes.
 	**/
-	function observeActivePane(callback:haxe.Constraints.Function):atom.Disposable;
+	function observeActivePane(callback:atom.Pane -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when a pane item is added to the
 		workspace.
 	**/
-	function onDidAddPaneItem(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidAddPaneItem(callback:{ var item : Dynamic; var pane : atom.Pane; var index : Float; } -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when a pane item is about to be
 		destroyed, before the user is prompted to save it.
 	**/
-	function onWillDestroyPaneItem(callback:haxe.Constraints.Function):atom.Disposable;
+	function onWillDestroyPaneItem(callback:{ var item : Dynamic; var pane : atom.Pane; var index : Float; } -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when a pane item is destroyed.
 	**/
-	function onDidDestroyPaneItem(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidDestroyPaneItem(callback:{ var item : Dynamic; var pane : atom.Pane; var index : Float; } -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when a text editor is added to the
 		workspace.
 	**/
-	function onDidAddTextEditor(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidAddTextEditor(callback:{ var textEditor : atom.TextEditor; var pane : atom.Pane; var index : Float; } -> Dynamic):atom.Disposable;
 	/**
 		Open a given a URI in Atom asynchronously.
 	**/
@@ -172,5 +172,5 @@ package atom;
 	/**
 		Performs a replace across all the specified files in the project.
 	**/
-	function replace(regex:js.RegExp, replacementText:Dynamic, filePaths:Dynamic, iterator:haxe.Constraints.Function):Dynamic;
+	function replace(regex:js.RegExp, replacementText:Dynamic, filePaths:Dynamic, iterator:Dynamic<Dynamic> -> Dynamic):Dynamic;
 }

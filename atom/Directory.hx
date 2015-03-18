@@ -45,6 +45,6 @@ package atom;
 	/**
 		Reads file entries in this directory from disk asynchronously.
 	**/
-	function getEntries(callback:haxe.Constraints.Function):Dynamic;
+	function getEntries(callback:js.Error -> Array<Dynamic> -> Dynamic):Dynamic;
 	function contains():Dynamic;
 }

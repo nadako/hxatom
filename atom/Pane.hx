@@ -18,42 +18,42 @@ package atom;
 		Invoke the given callback when the value of the {::isActive}
 		property changes.
 	**/
-	function onDidChangeActive(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidChangeActive(callback:Bool -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback with the current and future values of the
 		{::isActive} property.
 	**/
-	function observeActive(callback:haxe.Constraints.Function):atom.Disposable;
+	function observeActive(callback:Bool -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when an item is added to the pane.
 	**/
-	function onDidAddItem(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidAddItem(callback:{ var item : Dynamic; var index : Float; } -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when an item is removed from the pane.
 	**/
-	function onDidRemoveItem(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidRemoveItem(callback:{ var item : Dynamic; var index : Float; } -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when an item is moved within the pane.
 	**/
-	function onDidMoveItem(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidMoveItem(callback:{ var item : Dynamic; var oldIndex : Float; var newIndex : Float; } -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback with all current and future items.
 	**/
-	function observeItems(callback:haxe.Constraints.Function):atom.Disposable;
+	function observeItems(callback:Dynamic -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when the value of {::getActiveItem}
 		changes.
 	**/
-	function onDidChangeActiveItem(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidChangeActiveItem(callback:Dynamic -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback with the current and future values of
 		{::getActiveItem}.
 	**/
-	function observeActiveItem(callback:haxe.Constraints.Function):atom.Disposable;
+	function observeActiveItem(callback:Dynamic -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback before items are destroyed.
 	**/
-	function onWillDestroyItem(callback:haxe.Constraints.Function):atom.Disposable;
+	function onWillDestroyItem(callback:{ var item : Dynamic; var index : Dynamic; } -> Dynamic):atom.Disposable;
 	/**
 		Get the items in this pane.
 	**/

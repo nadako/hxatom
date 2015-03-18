@@ -12,11 +12,11 @@ package atom;
 	/**
 		Invoke the given callback when the pane hidden or shown.
 	**/
-	function onDidChangeVisible(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidChangeVisible(callback:Bool -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when the pane is destroyed.
 	**/
-	function onDidDestroy(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidDestroy(callback:atom.Panel -> Dynamic):atom.Disposable;
 	function getItem():Dynamic;
 	function getPriority():Float;
 	function isVisible():Bool;

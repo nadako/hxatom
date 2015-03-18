@@ -29,11 +29,11 @@ package atom;
 		Calls your `callback` when a {Cursor} is moved. If there are
 		multiple cursors, your callback will be called for each cursor.
 	**/
-	function onDidChangeCursorPosition(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidChangeCursorPosition(callback:{ var oldBufferPosition : atom.Point; var oldScreenPosition : atom.Point; var newBufferPosition : atom.Point; var newScreenPosition : atom.Point; var textChanged : Bool; var cursor : atom.Cursor; } -> Dynamic):atom.Disposable;
 	/**
 		Calls your `callback` when a selection's screen range changes.
 	**/
-	function onDidChangeSelectionRange(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidChangeSelectionRange(callback:{ var oldBufferRange : atom.Range; var oldScreenRange : atom.Range; var newBufferRange : atom.Range; var newScreenRange : atom.Range; var selection : atom.Selection; } -> Dynamic):atom.Disposable;
 	/**
 		Calls your `callback` when soft wrap was enabled or disabled.
 	**/
@@ -47,12 +47,12 @@ package atom;
 		colorizes the text has been changed. Immediately calls your callback with
 		the current grammar.
 	**/
-	function observeGrammar(callback:haxe.Constraints.Function):atom.Disposable;
+	function observeGrammar(callback:atom.Grammar -> Dynamic):atom.Disposable;
 	/**
 		Calls your `callback` when the grammar that interprets and
 		colorizes the text has been changed.
 	**/
-	function onDidChangeGrammar(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidChangeGrammar(callback:atom.Grammar -> Dynamic):atom.Disposable;
 	/**
 		Calls your `callback` when the result of {::isModified} changes.
 	**/
@@ -65,15 +65,15 @@ package atom;
 	/**
 		Calls your `callback` before text has been inserted.
 	**/
-	function onWillInsertText(callback:haxe.Constraints.Function):atom.Disposable;
+	function onWillInsertText(callback:{ var text : String; var cancel : haxe.Constraints.Function; } -> Dynamic):atom.Disposable;
 	/**
 		Calls your `callback` adter text has been inserted.
 	**/
-	function onDidInsertText(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidInsertText(callback:{ var text : String; } -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback after the buffer is saved to disk.
 	**/
-	function onDidSave(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidSave(callback:{ var path : Dynamic; } -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when the editor is destroyed.
 	**/
@@ -82,45 +82,45 @@ package atom;
 		Calls your `callback` when a {Cursor} is added to the editor.
 		Immediately calls your callback for each existing cursor.
 	**/
-	function observeCursors(callback:haxe.Constraints.Function):atom.Disposable;
+	function observeCursors(callback:atom.Cursor -> Dynamic):atom.Disposable;
 	/**
 		Calls your `callback` when a {Cursor} is added to the editor.
 	**/
-	function onDidAddCursor(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidAddCursor(callback:atom.Cursor -> Dynamic):atom.Disposable;
 	/**
 		Calls your `callback` when a {Cursor} is removed from the editor.
 	**/
-	function onDidRemoveCursor(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidRemoveCursor(callback:atom.Cursor -> Dynamic):atom.Disposable;
 	/**
 		Calls your `callback` when a {Selection} is added to the editor.
 		Immediately calls your callback for each existing selection.
 	**/
-	function observeSelections(callback:haxe.Constraints.Function):atom.Disposable;
+	function observeSelections(callback:atom.Selection -> Dynamic):atom.Disposable;
 	/**
 		Calls your `callback` when a {Selection} is added to the editor.
 	**/
-	function onDidAddSelection(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidAddSelection(callback:atom.Selection -> Dynamic):atom.Disposable;
 	/**
 		Calls your `callback` when a {Selection} is removed from the editor.
 	**/
-	function onDidRemoveSelection(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidRemoveSelection(callback:atom.Selection -> Dynamic):atom.Disposable;
 	/**
 		Calls your `callback` with each {Decoration} added to the editor.
 		Calls your `callback` immediately for any existing decorations.
 	**/
-	function observeDecorations(callback:haxe.Constraints.Function):atom.Disposable;
+	function observeDecorations(callback:atom.Decoration -> Dynamic):atom.Disposable;
 	/**
 		Calls your `callback` when a {Decoration} is added to the editor.
 	**/
-	function onDidAddDecoration(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidAddDecoration(callback:atom.Decoration -> Dynamic):atom.Disposable;
 	/**
 		Calls your `callback` when a {Decoration} is removed from the editor.
 	**/
-	function onDidRemoveDecoration(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidRemoveDecoration(callback:atom.Decoration -> Dynamic):atom.Disposable;
 	/**
 		Calls your `callback` when the placeholder text is changed.
 	**/
-	function onDidChangePlaceholderText(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidChangePlaceholderText(callback:String -> Dynamic):atom.Disposable;
 	/**
 		Get the editor's title for display in other parts of the
 		UI such as the tabs.
@@ -669,17 +669,17 @@ package atom;
 		Scan regular expression matches in the entire buffer, calling the
 		given iterator function on each match.
 	**/
-	function scan(regex:js.RegExp, iterator:haxe.Constraints.Function):Dynamic;
+	function scan(regex:js.RegExp, iterator:{ var match : Dynamic; var matchText : String; var range : atom.Range; var stop : haxe.Constraints.Function; var replace : haxe.Constraints.Function; } -> Dynamic):Dynamic;
 	/**
 		Scan regular expression matches in a given range, calling the given
 		iterator function on each match.
 	**/
-	function scanInBufferRange(regex:js.RegExp, range:atom.Range, iterator:haxe.Constraints.Function):Dynamic;
+	function scanInBufferRange(regex:js.RegExp, range:atom.Range, iterator:Dynamic -> String -> atom.Range -> haxe.Constraints.Function -> haxe.Constraints.Function -> Dynamic):Dynamic;
 	/**
 		Scan regular expression matches in a given range in reverse order,
 		calling the given iterator function on each match.
 	**/
-	function backwardsScanInBufferRange(regex:js.RegExp, range:atom.Range, iterator:haxe.Constraints.Function):Dynamic;
+	function backwardsScanInBufferRange(regex:js.RegExp, range:atom.Range, iterator:Dynamic -> String -> atom.Range -> haxe.Constraints.Function -> haxe.Constraints.Function -> Dynamic):Dynamic;
 	function getSoftTabs():Bool;
 	/**
 		Enable or disable soft tabs for this editor.

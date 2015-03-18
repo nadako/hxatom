@@ -12,7 +12,7 @@ package atom;
 		Invoke the given callback synchronously when the content of the
 		buffer changes.
 	**/
-	function onDidChange(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidChange(callback:{ var oldRange : atom.Range; var newRange : atom.Range; var oldText : String; var newText : String; } -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback asynchronously following one or more
 		changes after {::getStoppedChangingDelay} milliseconds elapse without an
@@ -27,7 +27,7 @@ package atom;
 	/**
 		Invoke the given callback the value of {::isModified} changes.
 	**/
-	function onDidChangeModified(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidChangeModified(callback:Bool -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when all marker `::onDidChange`
 		observers have been notified following a change to the buffer.
@@ -36,15 +36,15 @@ package atom;
 	/**
 		Invoke the given callback when a marker is created.
 	**/
-	function onDidCreateMarker(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidCreateMarker(callback:atom.Marker -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when the value of {::getPath} changes.
 	**/
-	function onDidChangePath(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidChangePath(callback:String -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when the value of {::getEncoding} changes.
 	**/
-	function onDidChangeEncoding(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidChangeEncoding(callback:String -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback before the buffer is saved to disk.
 	**/
@@ -52,7 +52,7 @@ package atom;
 	/**
 		Invoke the given callback after the buffer is saved to disk.
 	**/
-	function onDidSave(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidSave(callback:{ var path : Dynamic; } -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback before the buffer is reloaded from the
 		contents of its file on disk.
@@ -71,7 +71,7 @@ package atom;
 		Invoke the given callback when there is an error in watching the
 		file.
 	**/
-	function onWillThrowWatchError(callback:haxe.Constraints.Function):atom.Disposable;
+	function onWillThrowWatchError(callback:{ var error : Dynamic<Dynamic>; var handle : haxe.Constraints.Function; } -> Dynamic):atom.Disposable;
 	/**
 		Get the number of milliseconds that will elapse without a change
 		before {::onDidStopChanging} observers are invoked following a change.
@@ -245,22 +245,22 @@ package atom;
 		Scan regular expression matches in the entire buffer, calling the
 		given iterator function on each match.
 	**/
-	function scan(regex:js.RegExp, iterator:haxe.Constraints.Function):Dynamic;
+	function scan(regex:js.RegExp, iterator:Dynamic -> String -> atom.Range -> haxe.Constraints.Function -> haxe.Constraints.Function -> Dynamic):Dynamic;
 	/**
 		Scan regular expression matches in the entire buffer in reverse
 		order, calling the given iterator function on each match.
 	**/
-	function backwardsScan(regex:js.RegExp, iterator:haxe.Constraints.Function):Dynamic;
+	function backwardsScan(regex:js.RegExp, iterator:Dynamic -> String -> atom.Range -> haxe.Constraints.Function -> haxe.Constraints.Function -> Dynamic):Dynamic;
 	/**
 		Scan regular expression matches in a given range , calling the given
 		iterator function on each match.
 	**/
-	function scanInRange(regex:js.RegExp, range:atom.Range, iterator:haxe.Constraints.Function):Dynamic;
+	function scanInRange(regex:js.RegExp, range:atom.Range, iterator:Dynamic -> String -> atom.Range -> haxe.Constraints.Function -> haxe.Constraints.Function -> Dynamic):Dynamic;
 	/**
 		Scan regular expression matches in a given range in reverse order,
 		calling the given iterator function on each match.
 	**/
-	function backwardsScanInRange(regex:js.RegExp, range:atom.Range, iterator:haxe.Constraints.Function):Dynamic;
+	function backwardsScanInRange(regex:js.RegExp, range:atom.Range, iterator:Dynamic -> String -> atom.Range -> haxe.Constraints.Function -> haxe.Constraints.Function -> Dynamic):Dynamic;
 	/**
 		Replace all regular expression matches in the entire buffer.
 	**/

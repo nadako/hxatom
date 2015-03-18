@@ -71,11 +71,11 @@ package atom;
 		Invoke the given callback when there is an unhandled error, but
 		before the devtools pop open
 	**/
-	function onWillThrowError(callback:haxe.Constraints.Function):atom.Disposable;
+	function onWillThrowError(callback:{ var originalError : Dynamic<Dynamic>; var message : String; var url : String; var line : Float; var column : Float; var preventDefault : haxe.Constraints.Function; } -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback whenever there is an unhandled error.
 	**/
-	function onDidThrowError(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidThrowError(callback:{ var originalError : Dynamic<Dynamic>; var message : String; var url : String; var line : Float; var column : Float; } -> Dynamic):atom.Disposable;
 	/**
 		Is the current window in development mode? 
 	**/
@@ -107,7 +107,7 @@ package atom;
 	/**
 		Show the native dialog to prompt the user to select a folder.
 	**/
-	function pickFolder(callback:haxe.Constraints.Function):Dynamic;
+	function pickFolder(callback:String -> Dynamic):Dynamic;
 	/**
 		Close the current window. 
 	**/
