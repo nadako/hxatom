@@ -70,12 +70,17 @@ class Convert {
                     fields.push(f);
                 }
 
+            var sup = null;
+            if (cls.superClass != null && cls.superClass != "Model") {
+                sup = {pack: ["atom"], name: cls.superClass};
+            }
+
             var s = printer.printTypeDefinition({
                 pos: pos,
                 pack: ["atom"],
                 name: cls.name,
                 isExtern: true,
-                kind: TDClass(),
+                kind: TDClass(sup),
                 fields: fields,
                 meta: [
                     {name: ":native", params: [{expr: EConst(CString(cls.name)), pos: pos}], pos: pos}
