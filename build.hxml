@@ -1,0 +1,4 @@
+--macro Convert.main()
+--gen-hx-classes
+-js main.js
+--no-output
