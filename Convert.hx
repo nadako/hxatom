@@ -1,5 +1,4 @@
 import haxe.DynamicAccess;
-import haxe.macro.Context;
 import haxe.macro.Expr;
 using haxe.macro.Tools;
 
@@ -38,10 +37,12 @@ typedef AtomProperty = {
 }
 
 class Convert {
-    static var pos = Context.makePosition({min: 0, max: 0, file: "atom-api"});
+    static var pos =  {min: 0, max: 0, file: ""};
 
     static function main() {
-        var api:AtomApi = haxe.Json.parse(sys.io.File.getContent("atom-api.json"));
+        var api:AtomApi = haxe.Json.parse(sys.io.File.getContent(Sys.args()[0]));
+        sys.FileSystem.createDirectory("atom");
+        var printer = new haxe.macro.Printer();
         for (key in api.classes.keys()) {
             var cls = api.classes[key];
             var fields:Array<Field> = [];
@@ -69,7 +70,7 @@ class Convert {
                     fields.push(f);
                 }
 
-            Context.defineType({
+            var s = printer.printTypeDefinition({
                 pos: pos,
                 pack: ["atom"],
                 name: cls.name,
@@ -77,9 +78,10 @@ class Convert {
                 kind: TDClass(),
                 fields: fields,
                 meta: [
-                    {name: ":native", params: [macro $v{cls.name}], pos: pos}
+                    {name: ":native", params: [{expr: EConst(CString(cls.name)), pos: pos}], pos: pos}
                 ]
             });
+            sys.io.File.saveContent("atom/" + cls.name + ".hx", s);
         }
     }
 

@@ -1,0 +1,34 @@
+package atom;
+@:native("Marker") extern class Marker {
+	function destroy():Void;
+	function copy(properties:Dynamic<Dynamic>):Void;
+	function onDidChange(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidDestroy(callback:haxe.Constraints.Function):atom.Disposable;
+	function isValid():Bool;
+	function isDestroyed():Bool;
+	function isReversed():Bool;
+	function getInvalidationStrategy():String;
+	function getProperties():Dynamic<Dynamic>;
+	function setProperties(properties:Dynamic<Dynamic>):Void;
+	function isEqual(other:atom.Marker):Bool;
+	function compare(other:atom.Marker):Float;
+	function getBufferRange():atom.Range;
+	function setBufferRange(bufferRange:atom.Range, properties:Dynamic<Dynamic>):Void;
+	function getScreenRange():atom.Range;
+	function setScreenRange(screenRange:atom.Range, properties:Dynamic<Dynamic>):Void;
+	function getStartBufferPosition():atom.Point;
+	function getStartScreenPosition():atom.Point;
+	function getEndBufferPosition():atom.Point;
+	function getEndScreenPosition():atom.Point;
+	function getHeadBufferPosition():atom.Point;
+	function setHeadBufferPosition(bufferPosition:atom.Point, properties:Dynamic<Dynamic>):Void;
+	function getHeadScreenPosition():atom.Point;
+	function setHeadScreenPosition(screenPosition:atom.Point, properties:Dynamic<Dynamic>):Void;
+	function getTailBufferPosition():atom.Point;
+	function setTailBufferPosition(bufferPosition:atom.Point, properties:Dynamic<Dynamic>):Void;
+	function getTailScreenPosition():atom.Point;
+	function setTailScreenPosition(screenPosition:atom.Point, properties:Dynamic<Dynamic>):Void;
+	function hasTail():Bool;
+	function plantTail(properties:Dynamic<Dynamic>):Void;
+	function clearTail(properties:Dynamic<Dynamic>):Void;
+}

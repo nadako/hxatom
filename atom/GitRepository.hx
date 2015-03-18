@@ -1,0 +1,34 @@
+package atom;
+@:native("GitRepository") extern class GitRepository {
+	static function open(path:String, options:Dynamic<Dynamic>):atom.GitRepository;
+	function destroy():Void;
+	function onDidDestroy():Void;
+	function onDidChangeStatus(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidChangeStatuses(callback:haxe.Constraints.Function):atom.Disposable;
+	function getPath():String;
+	function getWorkingDirectory():String;
+	function isProjectAtRoot():Dynamic;
+	function relativize():Void;
+	function hasBranch():Dynamic;
+	function getShortHead(path:String):String;
+	function isSubmodule(path:String):Bool;
+	function getAheadBehindCount(reference:String, path:String):Dynamic;
+	function getCachedUpstreamAheadBehindCount(path:String):Dynamic<Dynamic>;
+	function getConfigValue(path:String):Dynamic;
+	function getOriginURL(path:String):Dynamic;
+	function getUpstreamBranch(path:String):Dynamic;
+	function getReferences(path:String):Dynamic<Dynamic>;
+	function getReferenceTarget(reference:String, path:String):String;
+	function isPathModified():Dynamic;
+	function isPathNew():Dynamic;
+	function isPathIgnored():Bool;
+	function getDirectoryStatus(path:String):Float;
+	function getPathStatus():Float;
+	function getCachedPathStatus(path:String):Float;
+	function isStatusModified():Dynamic;
+	function isStatusNew():Dynamic;
+	function getDiffStats(path:String):Dynamic<Dynamic>;
+	function getLineDiffs(path:String, text:String):Array<Dynamic>;
+	function checkoutHead(path:String):Bool;
+	function checkoutReference(reference:String, create:Bool):Dynamic;
+}

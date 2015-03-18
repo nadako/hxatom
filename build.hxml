@@ -1,4 +1,12 @@
---macro Convert.main()
---gen-hx-classes
+-main Convert
+-neko convert.n
+
+--next
+
+-cmd neko convert.n atom-api.json
+
+--next
+
+--macro ImportAll.run("atom")
 -js main.js
 --no-output
