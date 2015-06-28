@@ -20,7 +20,7 @@ package atom;
 	/**
 		Modifies the buffer {Range} for the selection.
 	**/
-	function setBufferRange(screenRange:atom.Range, options:{ var preserveFolds : Dynamic; var autoscroll : atom.TextEditor; }):Dynamic;
+	function setBufferRange(bufferRange:atom.Range, options:{ var preserveFolds : Dynamic; var autoscroll : Bool; }):Dynamic;
 	function getBufferRowRange():Dynamic;
 	/**
 		Determines if the selection contains anything. 
@@ -42,9 +42,9 @@ package atom;
 	**/
 	function intersectsWith(otherSelection:atom.Selection):Bool;
 	/**
-		Clears the selection, moving the marker to the head. 
+		Clears the selection, moving the marker to the head.
 	**/
-	function clear():Dynamic;
+	function clear(options:{ var autoscroll : Bool; }):Dynamic;
 	/**
 		Selects the text from the current cursor position to a given screen
 		position.
@@ -160,6 +160,18 @@ package atom;
 		is empty otherwise it deletes the selection. 
 	**/
 	function backspace():Dynamic;
+	/**
+		Removes the selection or, if nothing is selected, then all
+		characters from the start of the selection back to the previous word
+		boundary. 
+	**/
+	function deleteToPreviousWordBoundary():Dynamic;
+	/**
+		Removes the selection or, if nothing is selected, then all
+		characters from the start of the selection up to the next word
+		boundary. 
+	**/
+	function deleteToNextWordBoundary():Dynamic;
 	/**
 		Removes from the start of the selection to the beginning of the
 		current word if the selection is empty otherwise it deletes the selection. 

@@ -7,6 +7,14 @@
 package atom;
 @:native("Pane") extern class Pane {
 	/**
+		Invoke the given callback when the pane resize
+	**/
+	function onDidChangeFlexScale(callback:haxe.Constraints.Function):atom.Disposable;
+	/**
+		Invoke the given callback with all current and future items.
+	**/
+	function observeFlexScale(callback:Dynamic -> Dynamic):atom.Disposable;
+	/**
 		Invoke the given callback when the pane is activated.
 	**/
 	function onDidActivate(callback:haxe.Constraints.Function):atom.Disposable;

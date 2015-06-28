@@ -13,9 +13,9 @@ package atom;
 	function destroy():Dynamic;
 	/**
 		Invoke the given callback when this GitRepository's destroy() method
-		is invoked. 
+		is invoked.
 	**/
-	function onDidDestroy():Dynamic;
+	function onDidDestroy(callback:haxe.Constraints.Function):atom.Disposable;
 	/**
 		Invoke the given callback when a specific file's status has
 		changed. When a file is updated, reloaded, etc, and the status changes, this
@@ -29,6 +29,11 @@ package atom;
 		{::getPathStatus(path)} to get the status for your path of choice.
 	**/
 	function onDidChangeStatuses(callback:haxe.Constraints.Function):atom.Disposable;
+	/**
+		A {String} indicating the type of version control system used by
+		this repository.
+	**/
+	function getType():Dynamic;
 	function getPath():String;
 	function getWorkingDirectory():String;
 	function isProjectAtRoot():Dynamic;
@@ -59,12 +64,12 @@ package atom;
 	**/
 	function getReferences(path:String):Dynamic<Dynamic>;
 	function getReferenceTarget(reference:String, path:String):String;
-	function isPathModified():Dynamic;
-	function isPathNew():Dynamic;
+	function isPathModified(path:String):Dynamic;
+	function isPathNew(path:String):Dynamic;
 	/**
 		Is the given path ignored?
 	**/
-	function isPathIgnored():Bool;
+	function isPathIgnored(path:String):Bool;
 	/**
 		Get the status of a directory in the repository's working directory.
 	**/
@@ -77,8 +82,8 @@ package atom;
 		Get the cached status for the given path.
 	**/
 	function getCachedPathStatus(path:String):Float;
-	function isStatusModified():Dynamic;
-	function isStatusNew():Dynamic;
+	function isStatusModified(status:Float):Dynamic;
+	function isStatusNew(status:Float):Dynamic;
 	/**
 		Retrieves the number of lines added and removed to a path.
 	**/

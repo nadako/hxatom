@@ -72,7 +72,10 @@ package atom;
 	**/
 	function onDidAddTextEditor(callback:{ var textEditor : atom.TextEditor; var pane : atom.Pane; var index : Float; } -> Dynamic):atom.Disposable;
 	/**
-		Open a given a URI in Atom asynchronously.
+		Opens the given URI in Atom asynchronously.
+		If the URI is already open, the existing item for that URI will be
+		activated. If no URI is given, or no registered opener can open
+		the URI, a new empty {TextEditor} will be created.
 	**/
 	function open(uri:String, options:{ var initialLine : Float; var initialColumn : Float; var split : Dynamic; var activatePane : Bool; var searchAllPanes : Bool; }):atom.TextEditor;
 	/**
@@ -168,7 +171,7 @@ package atom;
 	/**
 		Performs a search across all the files in the workspace.
 	**/
-	function scan(regex:js.RegExp, options:{ var paths : Array<Dynamic>; }, iterator:haxe.Constraints.Function):Dynamic;
+	function scan(regex:js.RegExp, options:{ var paths : Array<Dynamic>; var onPathsSearched : haxe.Constraints.Function; }, iterator:haxe.Constraints.Function):Dynamic;
 	/**
 		Performs a replace across all the specified files in the project.
 	**/

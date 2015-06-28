@@ -5,9 +5,14 @@
 package atom;
 @:native("File") extern class File {
 	/**
-		Creates a new file.
+		Configures a new File instance, no files are accessed.
 	**/
 	function new(filePath:String, symlink:Bool):Void;
+	/**
+		Creates the file on disk that corresponds to `::getPath()` if no
+		such file already exists.
+	**/
+	function create():js.Promise<Dynamic>;
 	/**
 		Invoke the given callback when the file's contents change.
 	**/
@@ -35,12 +40,17 @@ package atom;
 	**/
 	function getDigest():String;
 	/**
+		Get the SHA-1 digest of this file
+	**/
+	function getDigestSync():String;
+	/**
 		Sets the file's character set encoding name.
 	**/
 	function setEncoding(encoding:String):Dynamic;
 	function getEncoding():String;
 	function getPath():String;
 	function getRealPathSync():String;
+	function getRealPath():String;
 	/**
 		Return the {String} filename without any directory information. 
 	**/
@@ -56,5 +66,9 @@ package atom;
 	/**
 		Overwrites the file with the given text.
 	**/
-	function write(text:String):Dynamic;
+	function write(text:String):js.Promise<Dynamic>;
+	/**
+		Overwrites the file with the given text.
+	**/
+	function writeSync(text:String):Dynamic;
 }

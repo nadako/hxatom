@@ -7,5 +7,5 @@ package atom;
 	/**
 		Add context menu items scoped by CSS selectors.
 	**/
-	function add(itemsBySelector:{ var label : String; var command : String; var submenu : Array<Dynamic>; var type : Dynamic; var created : Dynamic -> Dynamic; var shouldDisplay : Dynamic -> Dynamic; }):Dynamic;
+	function add(itemsBySelector:{ var label : String; var command : String; var submenu : Array<Dynamic>; var type : Dynamic; var created : Dynamic -> Dynamic; var shouldDisplay : Dynamic -> Dynamic; }):atom.Disposable;
 }

@@ -4,6 +4,14 @@
 package atom;
 @:native("Range") extern class Range {
 	/**
+		A {Point} representing the start of the {Range}. 
+	**/
+	var start : Dynamic;
+	/**
+		A {Point} representing the end of the {Range}. 
+	**/
+	var end : Dynamic;
+	/**
 		Convert any range-compatible object to a {Range}.
 	**/
 	static function fromObject(object:atom.Range, copy:Dynamic):atom.Range;

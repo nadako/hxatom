@@ -24,7 +24,7 @@ package atom;
 	/**
 		Moves a cursor to a given buffer position.
 	**/
-	function setBufferPosition(bufferPosition:Array<Dynamic>, options:{ var autoscroll : atom.TextEditor; }):Dynamic;
+	function setBufferPosition(bufferPosition:Array<Dynamic>, options:{ var autoscroll : Bool; }):Dynamic;
 	function getBufferPosition():Dynamic;
 	function getScreenRow():Dynamic;
 	function getScreenColumn():Dynamic;

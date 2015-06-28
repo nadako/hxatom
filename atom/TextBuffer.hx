@@ -9,6 +9,11 @@ package atom;
 	**/
 	function new(params:{ var load : Bool; var text : String; }):Void;
 	/**
+		Invoke the given callback synchronously _before_ the content of the
+		buffer changes.
+	**/
+	function onWillChange(callback:{ var oldRange : atom.Range; var newRange : atom.Range; var oldText : String; var newText : String; } -> Dynamic):atom.Disposable;
+	/**
 		Invoke the given callback synchronously when the content of the
 		buffer changes.
 	**/
@@ -53,6 +58,11 @@ package atom;
 		Invoke the given callback after the buffer is saved to disk.
 	**/
 	function onDidSave(callback:{ var path : Dynamic; } -> Dynamic):atom.Disposable;
+	/**
+		Invoke the given callback after the file backing the buffer is
+		deleted.
+	**/
+	function onDidDelete(callback:haxe.Constraints.Function):atom.Disposable;
 	/**
 		Invoke the given callback before the buffer is reloaded from the
 		contents of its file on disk.

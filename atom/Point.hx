@@ -4,6 +4,14 @@
 package atom;
 @:native("Point") extern class Point {
 	/**
+		A zero-indexed {Number} representing the row of the {Point}. 
+	**/
+	var row : Dynamic;
+	/**
+		A zero-indexed {Number} representing the column of the {Point}. 
+	**/
+	var column : Dynamic;
+	/**
 		Convert any point-compatible object to a {Point}.
 	**/
 	static function fromObject(object:atom.Point, copy:Dynamic):atom.Point;

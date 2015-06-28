@@ -8,11 +8,17 @@ package atom;
 	**/
 	function new(directoryPath:String, symlink:Bool):Void;
 	/**
+		Creates the directory on disk that corresponds to `::getPath()` if
+		no such directory already exists.
+	**/
+	function create(mode:Float):Dynamic;
+	/**
 		Invoke the given callback when the directory's contents change.
 	**/
 	function onDidChange(callback:haxe.Constraints.Function):atom.Disposable;
 	function isFile():Bool;
 	function isDirectory():Bool;
+	function exists():Bool;
 	function existsSync():Bool;
 	/**
 		Return a {Boolean}, true if this {Directory} is the root directory
@@ -46,5 +52,10 @@ package atom;
 		Reads file entries in this directory from disk asynchronously.
 	**/
 	function getEntries(callback:js.Error -> Array<Dynamic> -> Dynamic):Dynamic;
-	function contains():Dynamic;
+	/**
+		Determines if the given path (real or symbolic) is inside this
+		directory. This method does not actually check if the path exists, it just
+		checks if the path is under this directory.
+	**/
+	function contains(pathToCheck:String):Bool;
 }

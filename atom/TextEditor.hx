@@ -67,7 +67,7 @@ package atom;
 	**/
 	function onWillInsertText(callback:{ var text : String; var cancel : haxe.Constraints.Function; } -> Dynamic):atom.Disposable;
 	/**
-		Calls your `callback` adter text has been inserted.
+		Calls your `callback` after text has been inserted.
 	**/
 	function onDidInsertText(callback:{ var text : String; } -> Dynamic):atom.Disposable;
 	/**
@@ -122,6 +122,17 @@ package atom;
 	**/
 	function onDidChangePlaceholderText(callback:String -> Dynamic):atom.Disposable;
 	/**
+		Retrieves the current {TextBuffer}. 
+	**/
+	function getBuffer():Dynamic;
+	/**
+		Creates and returns a {Gutter}.
+		See {GutterContainer::addGutter} for more details. 
+	**/
+	function addGutter():Dynamic;
+	function getGutters():Array<Dynamic>;
+	function gutterWithName():atom.Gutter;
+	/**
 		Get the editor's title for display in other parts of the
 		UI such as the tabs.
 	**/
@@ -165,9 +176,9 @@ package atom;
 	**/
 	function getCurrentParagraphBufferRange():atom.Range;
 	/**
-		Replaces the entire contents of the buffer with the given {String}. 
+		Replaces the entire contents of the buffer with the given {String}.
 	**/
-	function setText():Dynamic;
+	function setText(text:String):Dynamic;
 	/**
 		Set the text in the given {Range} in buffer coordinates.
 	**/
@@ -224,6 +235,16 @@ package atom;
 		selected text. 
 	**/
 	function deleteToBeginningOfWord():Dynamic;
+	/**
+		Similar to {::deleteToBeginningOfWord}, but deletes only back to the
+		previous word boundary. 
+	**/
+	function deleteToPreviousWordBoundary():Dynamic;
+	/**
+		Similar to {::deleteToEndOfWord}, but deletes only up to the
+		next word boundary. 
+	**/
+	function deleteToNextWordBoundary():Dynamic;
 	/**
 		For each selection, if the selection is empty, delete all characters
 		of the containing line that precede the cursor. Otherwise delete the
@@ -309,11 +330,16 @@ package atom;
 	**/
 	function clipScreenPosition(screenPosition:atom.Point, options:{ var wrapBeyondNewlines : Bool; var wrapAtSoftNewlines : Bool; var screenLine : Bool; }):atom.Point;
 	/**
+		Clip the start and end of the given range to valid positions on screen.
+		See {::clipScreenPosition} for more information.
+	**/
+	function clipScreenRange(range:atom.Range, options:atom.Range):Dynamic;
+	/**
 		Adds a decoration that tracks a {Marker}. When the marker moves,
 		is invalidated, or is destroyed, the decoration will be updated to reflect
 		the marker's state.
 	**/
-	function decorateMarker(marker:atom.Marker, decorationParams:{ var type : Dynamic; var class_ : Dynamic; var onlyHead : Dynamic; var onlyEmpty : Dynamic; var onlyNonEmpty : Dynamic; var position : Dynamic; }):atom.Decoration;
+	function decorateMarker(marker:atom.Marker, decorationParams:{ var type : Dynamic; var class_ : Dynamic; var onlyHead : Dynamic; var onlyEmpty : Dynamic; var onlyNonEmpty : Dynamic; var position : Dynamic; var gutterName : Dynamic; }):atom.Decoration;
 	/**
 		Get all the decorations within a screen row range.
 	**/
@@ -365,6 +391,11 @@ package atom;
 	**/
 	function findMarkers(properties:{ var startBufferRow : Dynamic; var endBufferRow : Dynamic; var containsBufferRange : atom.Range; var containsBufferPosition : atom.Point; }):Dynamic;
 	/**
+		Observe changes in the set of markers that intersect a particular
+		region of the editor.
+	**/
+	function observeMarkers(callback:{ var insert : atom.Set; var update : atom.Set; var remove : atom.Set; } -> Dynamic):atom.MarkerObservationWindow;
+	/**
 		Get the {Marker} for the given marker id.
 	**/
 	function getMarker(id:Float):Dynamic;
@@ -389,6 +420,10 @@ package atom;
 		Move the cursor to the given position in buffer coordinates.
 	**/
 	function setCursorBufferPosition(position:atom.Point, options:{ var autoscroll : Dynamic; }):Dynamic;
+	/**
+		Get a {Cursor} at given screen coordinates {Point}
+	**/
+	function getCursorAtScreenPosition(position:atom.Point):atom.Cursor;
 	/**
 		Get the position of the most recently added cursor in screen
 		coordinates.

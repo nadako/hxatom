@@ -32,6 +32,10 @@ package atom;
 	**/
 	var tooltips : Dynamic;
 	/**
+		A {NotificationManager} instance 
+	**/
+	var notifications : Dynamic;
+	/**
 		A {Project} instance 
 	**/
 	var project : Dynamic;
@@ -105,9 +109,9 @@ package atom;
 	**/
 	function open(options:{ var pathsToOpen : Array<Dynamic>; var newWindow : Bool; var devMode : Bool; var safeMode : Bool; }):Dynamic;
 	/**
-		Show the native dialog to prompt the user to select a folder.
+		Prompt the user to select one or more folders.
 	**/
-	function pickFolder(callback:String -> Dynamic):Dynamic;
+	function pickFolder(callback:Array<Dynamic> -> Dynamic):Dynamic;
 	/**
 		Close the current window. 
 	**/
@@ -148,7 +152,7 @@ package atom;
 		Reload the current window. 
 	**/
 	function reload():Dynamic;
-	function isMaximixed():Bool;
+	function isMaximized():Bool;
 	/**
 		Is the current window in full screen mode? 
 	**/
