@@ -8,22 +8,10 @@ package atom;
 		updating the list of active themes have completed.
 	**/
 	function onDidChangeActiveThemes(callback:haxe.Constraints.Function):Dynamic;
-	/**
-		Get an array of all the loaded theme names. 
-	**/
-	function getLoadedThemeNames():Dynamic;
-	/**
-		Get an array of all the loaded themes. 
-	**/
-	function getLoadedThemes():Dynamic;
-	/**
-		Get an array of all the active theme names. 
-	**/
-	function getActiveThemeNames():Dynamic;
-	/**
-		Get an array of all the active themes. 
-	**/
-	function getActiveThemes():Dynamic;
+	function getLoadedThemeNames():Array<Dynamic>;
+	function getLoadedThemes():Array<Dynamic>;
+	function getActiveThemeNames():Array<Dynamic>;
+	function getActiveThemes():Array<Dynamic>;
 	/**
 		Get the enabled theme names from the config.
 	**/

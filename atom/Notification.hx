@@ -4,11 +4,18 @@
 package atom;
 @:native("Notification") extern class Notification {
 	/**
-		Retrieves the {String} type. 
+		Invoke the given callback when the notification is dismissed.
 	**/
-	function getType():Dynamic;
+	function onDidDismiss(callback:haxe.Constraints.Function):atom.Disposable;
 	/**
-		Retrieves the {String} message. 
+		Invoke the given callback when the notification is displayed.
 	**/
-	function getMessage():Dynamic;
+	function onDidDisplay(callback:haxe.Constraints.Function):atom.Disposable;
+	function getType():String;
+	function getMessage():String;
+	/**
+		Dismisses the notification, removing it from the UI. Calling this programmatically
+		will call all callbacks added via `onDidDismiss`. 
+	**/
+	function dismiss():Dynamic;
 }

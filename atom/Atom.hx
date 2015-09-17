@@ -80,26 +80,14 @@ package atom;
 		Invoke the given callback whenever there is an unhandled error.
 	**/
 	function onDidThrowError(callback:{ var originalError : Dynamic<Dynamic>; var message : String; var url : String; var line : Float; var column : Float; } -> Dynamic):atom.Disposable;
-	/**
-		Is the current window in development mode? 
-	**/
-	function inDevMode():Dynamic;
-	/**
-		Is the current window in safe mode? 
-	**/
-	function inSafeMode():Dynamic;
-	/**
-		Is the current window running specs? 
-	**/
-	function inSpecMode():Dynamic;
+	function inDevMode():Bool;
+	function inSafeMode():Bool;
+	function inSpecMode():Bool;
 	/**
 		Get the version of the Atom application.
 	**/
 	function getVersion():String;
-	/**
-		Determine whether the current version is an official release. 
-	**/
-	function isReleasedVersion():Dynamic;
+	function isReleasedVersion():Bool;
 	/**
 		Get the time taken to completely load the current window.
 	**/
@@ -153,10 +141,7 @@ package atom;
 	**/
 	function reload():Dynamic;
 	function isMaximized():Bool;
-	/**
-		Is the current window in full screen mode? 
-	**/
-	function isFullScreen():Dynamic;
+	function isFullScreen():Bool;
 	/**
 		Set the full screen state of the current window. 
 	**/

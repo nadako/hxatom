@@ -18,4 +18,12 @@ package atom;
 		Simulate the dispatch of a command on a DOM node.
 	**/
 	function dispatch(target:Dynamic, commandName:String):Dynamic;
+	/**
+		Invoke the given callback before dispatching a command event.
+	**/
+	function onWillDispatch(callback:Dynamic -> Dynamic):Dynamic;
+	/**
+		Invoke the given callback after dispatching a command event.
+	**/
+	function onDidDispatch(callback:Dynamic -> Dynamic):Dynamic;
 }

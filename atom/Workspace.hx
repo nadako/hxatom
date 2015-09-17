@@ -34,6 +34,11 @@ package atom;
 	**/
 	function onDidAddPane(callback:{ var pane : Dynamic; } -> Dynamic):atom.Disposable;
 	/**
+		Invoke the given callback before a pane is destroyed in the
+		workspace.
+	**/
+	function onWillDestroyPane(callback:{ var pane : Dynamic; } -> Dynamic):atom.Disposable;
+	/**
 		Invoke the given callback when a pane is destroyed in the
 		workspace.
 	**/

@@ -12,14 +12,14 @@ package atom;
 	**/
 	function destroy():Dynamic;
 	/**
-		Creates and returns a new {Marker} with the same properties as this
-		marker.
+		Creates and returns a new {Marker} with the same properties as
+		this marker.
 	**/
-	function copy(properties:Dynamic<Dynamic>):Dynamic;
+	function copy(properties:Dynamic<Dynamic>):atom.Marker;
 	/**
 		Invoke the given callback when the state of the marker changes.
 	**/
-	function onDidChange(callback:{ var oldHeadPosition : atom.Point; var newHeadPosition : atom.Point; var oldTailPosition : atom.Point; var newTailPosition : atom.Point; var wasValid : Bool; var isValid : Bool; var hadTail : Bool; var hasTail : Bool; var oldProperties : Dynamic<Dynamic>; var newProperties : Dynamic<Dynamic>; var textChanged : Bool; } -> Dynamic):atom.Disposable;
+	function onDidChange(callback:{ var oldHeadBufferPosition : atom.Point; var newHeadBufferPosition : atom.Point; var oldTailBufferPosition : atom.Point; var newTailBufferPosition : atom.Point; var oldHeadScreenPosition : atom.Point; var newHeadScreenPosition : atom.Point; var oldTailScreenPosition : atom.Point; var newTailScreenPosition : atom.Point; var wasValid : Bool; var isValid : Bool; var hadTail : Bool; var hasTail : Bool; var oldProperties : Dynamic<Dynamic>; var newProperties : Dynamic<Dynamic>; var textChanged : Bool; } -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when the marker is destroyed.
 	**/

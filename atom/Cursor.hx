@@ -119,6 +119,14 @@ package atom;
 	**/
 	function moveToNextWordBoundary():Dynamic;
 	/**
+		Moves the cursor to the previous subword boundary. 
+	**/
+	function moveToPreviousSubwordBoundary():Dynamic;
+	/**
+		Moves the cursor to the next subword boundary. 
+	**/
+	function moveToNextSubwordBoundary():Dynamic;
+	/**
 		Moves the cursor to the beginning of the buffer line, skipping all
 		whitespace. 
 	**/
@@ -173,4 +181,8 @@ package atom;
 		Get the RegExp used by the cursor to determine what a "word" is.
 	**/
 	function wordRegExp(options:{ var includeNonWordCharacters : Bool; }):js.RegExp;
+	/**
+		Get the RegExp used by the cursor to determine what a "subword" is.
+	**/
+	function subwordRegExp(options:{ var backwards : Bool; }):js.RegExp;
 }

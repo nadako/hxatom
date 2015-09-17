@@ -5,6 +5,11 @@
 package atom;
 @:native("Disposable") extern class Disposable {
 	/**
+		Ensure that an `object` correctly implements the `Disposable`
+		contract.
+	**/
+	static function isDisposable(object:Dynamic):Bool;
+	/**
 		Construct a Disposable
 	**/
 	function new(disposalAction:Dynamic):Void;

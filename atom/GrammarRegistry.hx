@@ -44,24 +44,4 @@ package atom;
 		Read a grammar asynchronously and add it to the registry.
 	**/
 	function loadGrammar(grammarPath:String, callback:js.Error -> atom.Grammar -> Dynamic):Dynamic;
-	/**
-		Get the grammar override for the given file path.
-	**/
-	function grammarOverrideForPath(filePath:String):atom.Grammar;
-	/**
-		Set the grammar override for the given file path.
-	**/
-	function setGrammarOverrideForPath(filePath:String, scopeName:String):atom.Grammar;
-	/**
-		Remove the grammar override for the given file path.
-	**/
-	function clearGrammarOverrideForPath(filePath:String):Dynamic;
-	/**
-		Remove all grammar overrides.
-	**/
-	function clearGrammarOverrides():Dynamic;
-	/**
-		Select a grammar for the given file path and file contents.
-	**/
-	function selectGrammar(filePath:String, fileContents:String):atom.Grammar;
 }

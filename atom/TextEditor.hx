@@ -126,12 +126,18 @@ package atom;
 	**/
 	function getBuffer():Dynamic;
 	/**
-		Creates and returns a {Gutter}.
-		See {GutterContainer::addGutter} for more details. 
+		Calls your `callback` when a {Gutter} is added to the editor.
+		Immediately calls your callback for each existing gutter.
 	**/
-	function addGutter():Dynamic;
-	function getGutters():Array<Dynamic>;
-	function gutterWithName():atom.Gutter;
+	function observeGutters(callback:atom.Gutter -> Dynamic):atom.Disposable;
+	/**
+		Calls your `callback` when a {Gutter} is added to the editor.
+	**/
+	function onDidAddGutter(callback:atom.Gutter -> Dynamic):atom.Disposable;
+	/**
+		Calls your `callback` when a {Gutter} is removed from the editor.
+	**/
+	function onDidRemoveGutter(callback:atom.Gutter -> Dynamic):atom.Disposable;
 	/**
 		Get the editor's title for display in other parts of the
 		UI such as the tabs.
@@ -247,6 +253,18 @@ package atom;
 	function deleteToNextWordBoundary():Dynamic;
 	/**
 		For each selection, if the selection is empty, delete all characters
+		of the containing subword following the cursor. Otherwise delete the selected
+		text. 
+	**/
+	function deleteToBeginningOfSubword():Dynamic;
+	/**
+		For each selection, if the selection is empty, delete all characters
+		of the containing subword following the cursor. Otherwise delete the selected
+		text. 
+	**/
+	function deleteToEndOfSubword():Dynamic;
+	/**
+		For each selection, if the selection is empty, delete all characters
 		of the containing line that precede the cursor. Otherwise delete the
 		selected text. 
 	**/
@@ -339,7 +357,7 @@ package atom;
 		is invalidated, or is destroyed, the decoration will be updated to reflect
 		the marker's state.
 	**/
-	function decorateMarker(marker:atom.Marker, decorationParams:{ var type : Dynamic; var class_ : Dynamic; var onlyHead : Dynamic; var onlyEmpty : Dynamic; var onlyNonEmpty : Dynamic; var position : Dynamic; var gutterName : Dynamic; }):atom.Decoration;
+	function decorateMarker(marker:atom.Marker, decorationParams:{ var type : Dynamic; var class_ : Dynamic; var onlyHead : Dynamic; var onlyEmpty : Dynamic; var onlyNonEmpty : Dynamic; var position : Dynamic; }):atom.Decoration;
 	/**
 		Get all the decorations within a screen row range.
 	**/
@@ -511,6 +529,14 @@ package atom;
 	**/
 	function moveToNextWordBoundary():Dynamic;
 	/**
+		Move every cursor to the previous subword boundary. 
+	**/
+	function moveToPreviousSubwordBoundary():Dynamic;
+	/**
+		Move every cursor to the next subword boundary. 
+	**/
+	function moveToNextSubwordBoundary():Dynamic;
+	/**
 		Move every cursor to the beginning of the next paragraph. 
 	**/
 	function moveToBeginningOfNextParagraph():Dynamic;
@@ -546,12 +572,12 @@ package atom;
 		Set the selected range in buffer coordinates. If there are multiple
 		selections, they are reduced to a single selection with the given range.
 	**/
-	function setSelectedBufferRange(bufferRange:atom.Range, options:{ var reversed : Bool; }):Dynamic;
+	function setSelectedBufferRange(bufferRange:atom.Range, options:{ var reversed : Bool; var preserveFolds : Bool; }):Dynamic;
 	/**
 		Set the selected ranges in buffer coordinates. If there are multiple
 		selections, they are replaced by new selections with the given ranges.
 	**/
-	function setSelectedBufferRanges(bufferRanges:Array<Dynamic>, options:{ var reversed : Bool; }):Dynamic;
+	function setSelectedBufferRanges(bufferRanges:Array<Dynamic>, options:{ var reversed : Bool; var preserveFolds : Bool; }):Dynamic;
 	/**
 		Get the {Range} of the most recently added selection in screen
 		coordinates.
@@ -648,6 +674,16 @@ package atom;
 		Expand selections to the end of their containing word.
 	**/
 	function selectToEndOfWord():Dynamic;
+	/**
+		For each selection, move its cursor to the preceding subword
+		boundary while maintaining the selection's tail position.
+	**/
+	function selectToPreviousSubwordBoundary():Dynamic;
+	/**
+		For each selection, move its cursor to the next subword boundary
+		while maintaining the selection's tail position.
+	**/
+	function selectToNextSubwordBoundary():Dynamic;
 	/**
 		For each cursor, select the containing line.
 	**/
@@ -882,6 +918,18 @@ package atom;
 		Determine whether the given row in screen coordinates is folded.
 	**/
 	function isFoldedAtScreenRow(screenRow:Float):Bool;
+	/**
+		Add a custom {Gutter}.
+	**/
+	function addGutter(options:{ var name : String; var priority : Float; var visible : Bool; }):atom.Gutter;
+	/**
+		Get this editor's gutters.
+	**/
+	function getGutters():Array<Dynamic>;
+	/**
+		Get the gutter with the given name.
+	**/
+	function gutterWithName():atom.Gutter;
 	/**
 		Scroll the editor to reveal the most recently added cursor if it is
 		off-screen.

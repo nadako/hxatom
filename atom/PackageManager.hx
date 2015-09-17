@@ -46,11 +46,11 @@ package atom;
 	/**
 		Enable the package with the given name.
 	**/
-	function enablePackage():Dynamic<Dynamic>;
+	function enablePackage(name:String):Dynamic<Dynamic>;
 	/**
 		Disable the package with the given name.
 	**/
-	function disablePackage():Dynamic<Dynamic>;
+	function disablePackage(name:String):Dynamic<Dynamic>;
 	/**
 		Is the package with the given name disabled?
 	**/
@@ -79,16 +79,7 @@ package atom;
 		Is the package with the given name loaded?
 	**/
 	function isPackageLoaded(name:String):Bool;
-	/**
-		Get an {Array} of {String}s of all the available package paths. 
-	**/
-	function getAvailablePackagePaths():Dynamic;
-	/**
-		Get an {Array} of {String}s of all the available package names. 
-	**/
-	function getAvailablePackageNames():Dynamic;
-	/**
-		Get an {Array} of {String}s of all the available package metadata. 
-	**/
-	function getAvailablePackageMetadata():Dynamic;
+	function getAvailablePackagePaths():Array<Dynamic>;
+	function getAvailablePackageNames():Array<Dynamic>;
+	function getAvailablePackageMetadata():Array<Dynamic>;
 }

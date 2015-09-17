@@ -1,7 +1,7 @@
 /**
 	Allows commands to be associated with keystrokes in a
 	context-sensitive way. In Atom, you can access a global instance of this
-	object via `atom.keymap`.
+	object via `atom.keymaps`.
 **/
 package atom;
 @:native("KeymapManager") extern class KeymapManager {

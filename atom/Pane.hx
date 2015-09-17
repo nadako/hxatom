@@ -7,17 +7,22 @@
 package atom;
 @:native("Pane") extern class Pane {
 	/**
-		Invoke the given callback when the pane resize
+		Invoke the given callback when the pane resizes
 	**/
-	function onDidChangeFlexScale(callback:haxe.Constraints.Function):atom.Disposable;
+	function onDidChangeFlexScale(callback:Float -> Dynamic):atom.Disposable;
 	/**
-		Invoke the given callback with all current and future items.
+		Invoke the given callback with the current and future values of
+		{::getFlexScale}.
 	**/
-	function observeFlexScale(callback:Dynamic -> Dynamic):atom.Disposable;
+	function observeFlexScale(callback:Float -> Dynamic):atom.Disposable;
 	/**
 		Invoke the given callback when the pane is activated.
 	**/
 	function onDidActivate(callback:haxe.Constraints.Function):atom.Disposable;
+	/**
+		Invoke the given callback before the pane is destroyed.
+	**/
+	function onWillDestroy(callback:haxe.Constraints.Function):atom.Disposable;
 	/**
 		Invoke the given callback when the pane is destroyed.
 	**/
@@ -40,6 +45,10 @@ package atom;
 		Invoke the given callback when an item is removed from the pane.
 	**/
 	function onDidRemoveItem(callback:{ var item : Dynamic; var index : Float; } -> Dynamic):atom.Disposable;
+	/**
+		Invoke the given callback before an item is removed from the pane.
+	**/
+	function onWillRemoveItem(callback:{ var item : Dynamic; var index : Float; } -> Dynamic):Dynamic;
 	/**
 		Invoke the given callback when an item is moved within the pane.
 	**/
@@ -165,7 +174,7 @@ package atom;
 	/**
 		Activate the first item that matches the given URI.
 	**/
-	function activateItemForURI():Bool;
+	function activateItemForURI(uri:String):Bool;
 	/**
 		Determine whether the pane is active.
 	**/
