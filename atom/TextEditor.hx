@@ -412,7 +412,7 @@ package atom;
 		Observe changes in the set of markers that intersect a particular
 		region of the editor.
 	**/
-	function observeMarkers(callback:{ var insert : atom.Set; var update : atom.Set; var remove : atom.Set; } -> Dynamic):atom.MarkerObservationWindow;
+	function observeMarkers(callback:{ var insert : Dynamic; var update : Dynamic; var remove : Dynamic; } -> Dynamic):Dynamic<Dynamic>;
 	/**
 		Get the {Marker} for the given marker id.
 	**/

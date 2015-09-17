@@ -180,15 +180,17 @@ class Convert {
                 } else {
                     macro : Dynamic<Dynamic>;
                 }
-            case "Package" | "KeyBinding":
+            case "Package" | "KeyBinding" | "MarkerObservationWindow": // wtf is this
                 macro : Dynamic<Dynamic>;
             case "RegExp":
                 macro : js.RegExp;
             case "Error":
                 macro : js.Error;
+            case "Set":
+                macro : Dynamic; // TODO: add es6 Set extern to haxe
             case "Promise":
                 macro : js.Promise<Dynamic>;
-            case "Array" | "array":
+            case "Array":
                 macro : Array<Dynamic>;
             default:
                 TPath({pack: ["atom"], name: type});
