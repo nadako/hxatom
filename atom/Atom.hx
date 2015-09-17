@@ -6,67 +6,67 @@ package atom;
 	/**
 		A {CommandRegistry} instance 
 	**/
-	var commands : Dynamic;
+	var commands : atom.CommandRegistry;
 	/**
 		A {Config} instance 
 	**/
-	var config : Dynamic;
+	var config : atom.Config;
 	/**
 		A {Clipboard} instance 
 	**/
-	var clipboard : Dynamic;
+	var clipboard : atom.Clipboard;
 	/**
 		A {ContextMenuManager} instance 
 	**/
-	var contextMenu : Dynamic;
+	var contextMenu : atom.ContextMenuManager;
 	/**
 		A {MenuManager} instance 
 	**/
-	var menu : Dynamic;
+	var menu : atom.MenuManager;
 	/**
 		A {KeymapManager} instance 
 	**/
-	var keymaps : Dynamic;
+	var keymaps : atom.KeymapManager;
 	/**
 		A {TooltipManager} instance 
 	**/
-	var tooltips : Dynamic;
+	var tooltips : atom.TooltipManager;
 	/**
 		A {NotificationManager} instance 
 	**/
-	var notifications : Dynamic;
+	var notifications : atom.NotificationManager;
 	/**
 		A {Project} instance 
 	**/
-	var project : Dynamic;
+	var project : atom.Project;
 	/**
 		A {GrammarRegistry} instance 
 	**/
-	var grammars : Dynamic;
+	var grammars : atom.GrammarRegistry;
 	/**
 		A {PackageManager} instance 
 	**/
-	var packages : Dynamic;
+	var packages : atom.PackageManager;
 	/**
 		A {ThemeManager} instance 
 	**/
-	var themes : Dynamic;
+	var themes : atom.ThemeManager;
 	/**
 		A {StyleManager} instance 
 	**/
-	var styles : Dynamic;
+	var styles : atom.StyleManager;
 	/**
 		A {DeserializerManager} instance 
 	**/
-	var deserializers : Dynamic;
+	var deserializers : atom.DeserializerManager;
 	/**
 		A {ViewRegistry} instance 
 	**/
-	var views : Dynamic;
+	var views : atom.ViewRegistry;
 	/**
 		A {Workspace} instance 
 	**/
-	var workspace : Dynamic;
+	var workspace : atom.Workspace;
 	/**
 		Invoke the given callback whenever {::beep} is called.
 	**/

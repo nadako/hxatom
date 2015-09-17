@@ -109,10 +109,17 @@ class Convert {
     }
 
     static function convertProperty(p:AtomProperty):Field {
+        var summaryRe = ~/An? \{(.*)\} instance/;
+        var type =
+            if (summaryRe.match(p.summary))
+                convertType(summaryRe.matched(1), []);
+            else
+                macro : Dynamic;
+
         return {
             pos: pos,
             name: p.name,
-            kind: FVar(macro : Dynamic),
+            kind: FVar(type),
             doc: p.summary,
         };
     }
